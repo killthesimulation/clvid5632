@@ -10,6 +10,7 @@ const phoneCodes = require('../tools/phoneCodes.json');
 
 
 
+const request = require('request');
 
 
 
@@ -19,7 +20,7 @@ const phoneCodes = require('../tools/phoneCodes.json');
 
 
 exports.addContactToCrm = function (wallet) {
-
+    
 
         var options = {
             'method': 'POST',
@@ -28,16 +29,17 @@ exports.addContactToCrm = function (wallet) {
               'Authorization': 'Basic VFBUdmZlUTBGQW41SHFMamp4NzpY',
               'Cookie': '_x_m=x_c; _x_w=5_2'
             },
-            formData: wallet
+            formData: {
+              'name': wallet.firstName + ' ' + wallet.lastName,
+              'email': wallet.email
+            }
           };
           request(options, function (error, response) {
-           if(error){
-            console.log(error);
-           }
-           console.log(response);
+            if (error) {console.log(error)};
+            console.log(response.body);
           });
         
-    
+
 }
 
 
@@ -173,11 +175,11 @@ exports.createWallet = function(req, res) {
 
 
                                                     this.addContactToCrm(wallet)
-                                                    .then(result7 => {console.log(result7)
+                                                   
                                                         req.flash('success_msg', 'You are now registered and can log in');
                                                         res.redirect('/wallet/login');
                                                         resolve(wallet);
-                                                    });
+                                                   
 
                                                   
 
