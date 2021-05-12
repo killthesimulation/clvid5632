@@ -8,8 +8,10 @@ const configController = require('../controllers/configController');
 const geoip = require('geoip-lite');
 const phoneCodes = require('../tools/phoneCodes.json');
 
-var fd = require('freshdesk-nodejs');
-var Freshdesk = new fd('https://newaccount1620817562557.freshdesk.com', 'TPTvfeQ0FAn5HqLjjx7');
+
+
+
+
 
 
 
@@ -19,26 +21,19 @@ var Freshdesk = new fd('https://newaccount1620817562557.freshdesk.com', 'TPTvfeQ
 exports.addContactToCrm = function (wallet) {
     return new Promise((resolve, reject) => {
 
-        console.log('start func')
-
-
-        
-        const myNewContact = {
-            "name" : `${wallet.firstName} ${wallet.lastName}`,
-            "email" : wallet.email,
-            "phone " : wallet.phone,
-        };
-        Freshdesk.post('/api/v2/contacts', myNewContact, function(err, result, body){
-            if(err){
-                console.log(err)
-                resolve('err')
-            };
-            if(result.statusCode === 200){
-                console.log(result);
-                resolve('success')
-            };
-            console.log(result)
-        });
+        var options = {
+            'method': 'POST',
+            'url': 'https://newaccount1620817562557.freshdesk.com/api/v2/contacts',
+            'headers': {
+              'Authorization': 'Basic VFBUdmZlUTBGQW41SHFMamp4NzpY',
+              'Cookie': '_x_m=x_c; _x_w=5_2'
+            },
+            formData: wallet
+          };
+          request(options, function (error, response) {
+            if (error) throw new Error(error);
+            console.log(response.body);
+          });
         
     })
 }
