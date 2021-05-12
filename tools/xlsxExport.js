@@ -30,3 +30,24 @@ exports.exportTransactionsToExcel = function (dataArray, workSheetColumnNames, w
 
     this.exportExcel(data, workSheetColumnNames, workSheetName, filePath);
 }
+
+
+exports.exportSellOrdersToExcel = function (sellOrders, workSheetColumnNames, workSheetName, filePath) {
+    const data = sellOrders.map(item => {
+        return [item.clvId, item.ownerId, item.amount, item.active, item.dateCreated]
+    })
+
+    this.exportExcel(data, workSheetColumnNames, workSheetName, filePath);
+}
+
+
+
+exports.exportWithdrawRequestsToExcel = function (withdrawRequests, workSheetColumnNames, workSheetName, filePath) {
+    const data = withdrawRequests.map(item => {
+        return [item.firstName, item.lastName, item.email, item.phone, item.info, item.date, item.usdAmount]
+    })
+
+    this.exportExcel(data, workSheetColumnNames, workSheetName, filePath);
+}
+
+

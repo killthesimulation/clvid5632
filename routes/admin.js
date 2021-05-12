@@ -1298,5 +1298,102 @@ router.get('/exportTransactions', ensureAuthenticated, (req, res) => {
 
 })
 
+router.get('/exportSellOrders', ensureAuthenticated, (req, res) => {
+
+
+    if(req.user.id === process.env.ADMIN1 || req.user.id === process.env.ADMIN2 || req.user.id === process.env.ADMIN3) {
+
+
+        sellOrderController.getAllSellOrders()
+            .then(sellOrders => {
+
+                const workSheetColumnNames = [
+                    'clvId',
+                    'ownerId',
+                    'amount',
+                    'active',
+                    'dateCreated',
+                ]
+
+
+                const datetime = new Date();
+                const shortDate = 'sellOrders_' + datetime.getDate() + '.' + (datetime.getMonth() + 1) + '.' + datetime.getFullYear() + '.xlsx';
+
+                const workSheetName = 'SellOrders';
+                const filePath = `./tools/outputFiles/${shortDate}`;
+
+                xlsxExport.exportSellOrdersToExcel(sellOrders, workSheetColumnNames, workSheetName, filePath )
+               
+
+                sendEmail.sendEmailExcel(shortDate)
+                    .then(result => {
+                        console.log(result);
+                        res.redirect('/admin/sellorders')
+                    })
+
+                
+
+
+            })
+      
+
+    }else{
+        res.redirect('https://clovercountry.org/');
+    }
+
+
+})
+
+
+router.get('/exportWithdrawalRequests', ensureAuthenticated, (req, res) => {
+
+
+    if(req.user.id === process.env.ADMIN1 || req.user.id === process.env.ADMIN2 || req.user.id === process.env.ADMIN3) {
+
+
+        withdrawRequestController.getAllWithdrawRequests()
+            .then(withdrawRequests => {
+
+                const workSheetColumnNames = [
+                    'firstName',
+                    'lastName',
+                    'email',
+                    'phone',
+                    'info',
+                    'date',
+                    'usdAmount'
+                ]
+
+
+                const datetime = new Date();
+                const shortDate = 'withdrawRequests_' + datetime.getDate() + '.' + (datetime.getMonth() + 1) + '.' + datetime.getFullYear() + '.xlsx';
+
+                const workSheetName = 'withdrawRequests';
+                const filePath = `./tools/outputFiles/${shortDate}`;
+
+                xlsxExport.exportWithdrawRequestsToExcel(withdrawRequests, workSheetColumnNames, workSheetName, filePath )
+               
+
+                sendEmail.sendEmailExcel(shortDate)
+                    .then(result => {
+                        console.log(result);
+                        res.redirect('/admin/withdrawrequests')
+                    })
+
+                
+
+
+            })
+      
+
+    }else{
+        res.redirect('https://clovercountry.org/');
+    }
+
+
+})
+
+
+
 
 module.exports = router;

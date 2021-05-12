@@ -14,7 +14,8 @@ exports.createWithdrawRequest = function(id, amount, info){
                     email: wallet.email,
                     phone: wallet.phone,
                     usdAmount: amount,
-                    info
+                    info,
+                    id
                 })
 
                 newWithdrawalRequest.save()

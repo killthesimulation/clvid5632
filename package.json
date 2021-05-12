@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "coinbase-commerce-node": "^1.0.4",
     "connect-flash": "^0.1.1",
@@ -19,6 +20,8 @@
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.17.1",
+    "freshdesk-api": "^1.1.1",
+    "freshdesk-nodejs": "^1.0.0",
     "geoip-lite": "^1.4.2",
     "mongoose": "^5.10.3",
     "mongoose-long": "^0.3.2",

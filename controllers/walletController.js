@@ -4,10 +4,43 @@ const request = require('request');
 const functions = require('../tools/functions');
 const bcrypt = require('bcryptjs');
 const PartyReferralCode = require('../models/PartyReferralCode');
-
 const configController = require('../controllers/configController');
 const geoip = require('geoip-lite');
 const phoneCodes = require('../tools/phoneCodes.json');
+
+var fd = require('freshdesk-nodejs');
+var Freshdesk = new fd('https://newaccount1620817562557.freshdesk.com', 'TPTvfeQ0FAn5HqLjjx7');
+
+
+
+
+
+
+exports.addContactToCrm = function (wallet) {
+    return new Promise((resolve, reject) => {
+
+        console.log('start func')
+
+
+        
+        const myNewContact = {
+            "name" : `${wallet.firstName} ${wallet.lastName}`,
+            "email" : wallet.email,
+            "phone " : wallet.phone,
+        };
+        Freshdesk.post('/api/v2/contacts', myNewContact, function(err, res, body){
+            if(err){
+                console.log(err)
+                resolve('err')
+            };
+            if(res.statusCode === 200){
+                console.log(res);
+                resolve('success')
+            };
+        });
+        
+    })
+}
 
 
 
@@ -21,9 +54,9 @@ exports.createWallet = function(req, res) {
 
     const { firstName, lastName, gender, password, password2 } = req.body;
 
-    const ip = req.header('x-forwarded-for');
+    //const ip = req.header('x-forwarded-for');
 
-    //const ip = '46.185.13.175';
+    const ip = '46.185.13.84';
 
 
     const referral = req.body['referral'].toUpperCase();
@@ -139,10 +172,19 @@ exports.createWallet = function(req, res) {
                             newWallet.password = hash;
                             newWallet.save()
                                 .then(wallet => {
+
+
+                                                    this.addContactToCrm(wallet)
+                                                    .then(result7 => {console.log(result7)
+                                                        req.flash('success_msg', 'You are now registered and can log in');
+                                                        res.redirect('/wallet/login');
+                                                        resolve(wallet);
+                                                    });
+
+                                                  
+
                                   
-                                            req.flash('success_msg', 'You are now registered and can log in');
-                                            res.redirect('/wallet/login');
-                                            resolve(wallet);
+                                           
                                     
                                 })
                                 .catch(err => console.log(err));
@@ -395,10 +437,10 @@ exports.getFemalePercent = function () {
 
 exports.getUserGeoInfo = function (req) {
     return new Promise((resolve, reject) => {
-    const ip = req.header('x-forwarded-for');
+    //const ip = req.header('x-forwarded-for');
 
         
-    //const ip = '46.185.13.175';
+    const ip = '46.185.13.84';
 
   
 
