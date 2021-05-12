@@ -10,8 +10,6 @@ const phoneCodes = require('../tools/phoneCodes.json');
 
 
 
-const request = require('request');
-
 
 
 
