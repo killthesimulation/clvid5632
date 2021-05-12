@@ -54,9 +54,9 @@ exports.createWallet = function(req, res) {
 
     const { firstName, lastName, gender, password, password2 } = req.body;
 
-    //const ip = req.header('x-forwarded-for');
+    const ip = req.header('x-forwarded-for');
 
-    const ip = '46.185.13.84';
+    //const ip = '46.185.13.84';
 
 
     const referral = req.body['referral'].toUpperCase();
@@ -437,10 +437,10 @@ exports.getFemalePercent = function () {
 
 exports.getUserGeoInfo = function (req) {
     return new Promise((resolve, reject) => {
-    //const ip = req.header('x-forwarded-for');
+    const ip = req.header('x-forwarded-for');
 
         
-    const ip = '46.185.13.84';
+    //const ip = '46.185.13.84';
 
   
 
