@@ -1,0 +1,296 @@
+<div class="left-part">
+
+
+
+    <div class="lp-menu">
+
+        <a href="/dashboard" class="lpm-item ">
+            <div class="lpmi-icon"><i class="fas fa-chart-pie"></i></div>
+            <div class="lpmi-text">Dashboard</div>
+        </a>
+        <a href="/exchange" class="lpm-item lpm-item-selected">
+            <div class="lpmi-icon"><i class="fas fa-exchange-alt"></i></div>
+            <div class="lpmi-text">Exchange</div>
+        </a>
+
+        <a href="/transactions" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-history"></i></div>
+            <div class="lpmi-text">Transactions</div>
+        </a>
+
+        <a href="/referral" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-user-plus"></i></div>
+            <div class="lpmi-text">Referrals</div>
+        </a>
+
+
+        <a href="/wallet/logout" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-sign-out-alt"></i></div>
+            <div class="lpmi-text">Sign out</div>
+        </a>
+
+    </div>
+
+
+</div>
+
+
+<div class="main-part-wrapper">
+    <div class="main-part">
+
+        <div class="mp-top-bar">
+
+            <a href="#" class="ptb-item-logo">&nbsp;</a>
+            <div class="ptb-item ptb-item-selected">Exchange</div>
+        </div>
+
+        <div class="mp-spacer"></div>
+
+
+
+
+
+
+
+
+        <div class="mp-spacer-title">CLV Marketplace</div>
+
+
+
+        <div class="market-1-block">
+            <div class="w-b-1-title">Buy CLV</div>
+
+            <div class="m-b-1-title">
+                Starter
+            </div>
+
+
+
+            <div class="m-b-1-amount">
+                10 CLV
+            </div>
+
+            <div class="m-b-1-bonus">
+100% Free CLV Bonus
+            </div>
+
+
+            <div class="m-b-1-hint">
+                You will pay
+            </div>
+
+
+            <div class="m-b-1-usd">
+                $<%= price10 %>
+            </div>
+
+
+
+            <form action="/wallet/pay" method="POST">
+                <input type="hidden" id="walletId" name="walletId" value="<%= walletId %>">
+
+
+                <input type="hidden" id="quantity" name="quantity" placeholder="quantity" value="10">
+                <input type="hidden" id="bonus" name="bonus" placeholder="bonus" value="0">
+
+
+
+                <button type="submit" href="#" class="m-b-1-button"></button>
+
+            </form>
+
+            <form action="/wallet/crypto" method="POST">
+                <input type="hidden" id="walletId" name="walletId" value="<%= walletId %>">
+
+
+                <input type="hidden" id="quantity" name="quantity" placeholder="quantity" value="10">
+                <input type="hidden" id="bonus" name="bonus" placeholder="bonus" value="0">
+
+
+                <button type="submit" href="#" class="m-b-1-button-crypto"><span class="thin-but">Pay with</span>
+                    Crypto</button>
+
+            </form>
+
+        </div>
+
+
+
+        <div class="market-1-block">
+            <div class="w-b-1-title">Buy CLV</div>
+
+            <div class="m-b-1-title">
+                Supporter
+            </div>
+
+
+
+            <div class="m-b-1-amount">
+                50 CLV
+            </div>
+
+            <div class="m-b-1-bonus">
+                100% Free CLV Bonus
+            </div>
+
+
+            <div class="m-b-1-hint">
+                You will pay
+            </div>
+
+
+            <div class="m-b-1-usd">
+                $<%= price50 %>
+            </div>
+
+
+
+            <form action="/wallet/pay" method="POST">
+                <input type="hidden" id="walletId" name="walletId" value="<%= walletId %>">
+
+
+                <input type="hidden" id="quantity" name="quantity" placeholder="quantity" value="50">
+                <input type="hidden" id="bonus" name="bonus" placeholder="bonus" value="0.05">
+
+
+                <button type="submit" href="#" class="m-b-1-button"></button>
+
+            </form>
+
+
+            <form action="/wallet/crypto" method="POST">
+                <input type="hidden" id="walletId" name="walletId" value="<%= walletId %>">
+
+
+                <input type="hidden" id="quantity" name="quantity" placeholder="quantity" value="50">
+                <input type="hidden" id="bonus" name="bonus" placeholder="bonus" value="0.05">
+
+
+                <button type="submit" href="#" class="m-b-1-button-crypto"><span class="thin-but">Pay with</span>
+                    Crypto</button>
+
+            </form>
+        </div>
+
+
+
+
+        <div class="market-1-block">
+            <div class="w-b-1-title">Buy CLV</div>
+
+            <div class="m-b-1-title">
+                Advocate
+            </div>
+
+
+
+            <div class="m-b-1-amount">
+                250 CLV
+            </div>
+
+            <div class="m-b-1-bonus">
+                100% Free CLV Bonus
+            </div>
+
+
+            <div class="m-b-1-hint">
+                You will pay
+            </div>
+
+
+            <div class="m-b-1-usd">
+                $<%= price250 %>
+            </div>
+
+
+
+            <form action="/wallet/pay" method="POST">
+                <input type="hidden" id="walletId" name="walletId" value="<%= walletId %>">
+
+
+                <input type="hidden" id="quantity" name="quantity" placeholder="quantity" value="250">
+                <input type="hidden" id="bonus" name="bonus" placeholder="bonus" value="0.1">
+
+
+                <button type="submit" href="#" class="m-b-1-button"></button>
+
+            </form>
+
+
+            <form action="/wallet/crypto" method="POST">
+                <input type="hidden" id="walletId" name="walletId" value="<%= walletId %>">
+
+
+                <input type="hidden" id="quantity" name="quantity" placeholder="quantity" value="250">
+                <input type="hidden" id="bonus" name="bonus" placeholder="bonus" value="0.1">
+
+
+                <button type="submit" href="#" class="m-b-1-button-crypto"><span class="thin-but">Pay with</span>
+                    Crypto</button>
+
+            </form>
+        </div>
+
+
+
+
+        <div class="market-1-block">
+            <div class="w-b-1-title">Buy CLV</div>
+
+            <div class="m-b-1-title">
+                Champion
+            </div>
+
+
+
+            <div class="m-b-1-amount">
+                1000 CLV
+            </div>
+
+            <div class="m-b-1-bonus">
+                100% Free CLV Bonus
+            </div>
+
+
+            <div class="m-b-1-hint">
+                You will pay
+            </div>
+
+
+            <div class="m-b-1-usd">
+                $<%= price1000 %>
+            </div>
+
+
+
+            <form action="/wallet/pay" method="POST">
+                <input type="hidden" id="walletId" name="walletId" value="<%= walletId %>">
+
+
+                <input type="hidden" id="quantity" name="quantity" placeholder="quantity" value="1000">
+                <input type="hidden" id="bonus" name="bonus" placeholder="bonus" value="0.2">
+
+
+                <button type="submit" href="#" class="m-b-1-button"></button>
+
+            </form>
+
+            <form action="/wallet/crypto" method="POST">
+                <input type="hidden" id="walletId" name="walletId" value="<%= walletId %>">
+
+
+                <input type="hidden" id="quantity" name="quantity" placeholder="quantity" value="1000">
+                <input type="hidden" id="bonus" name="bonus" placeholder="bonus" value="0.2">
+
+
+                <button type="submit" href="#" class="m-b-1-button-crypto"><span class="thin-but">Pay with</span>
+                    Crypto</button>
+
+            </form>
+        </div>
+
+
+
+
+    </div>
+</div>

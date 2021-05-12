@@ -1,0 +1,127 @@
+<a href="/admin/main" class="admin-page-link"><i class="fas fa-arrow-left"></i> Back to main page </a>
+
+<div class="admin-page-title">
+    Clover Controls
+</div>
+
+
+
+<div class="admin-profile-page-items-wrapper admin-profile-page-items-wrapper-2">
+
+
+    <div class="admin-item-block admin-item-block-2">
+        <div class="admin-item-block-hint">
+            Change CLV Price (US$)
+        </div>
+        <form action="/admin/updateClvPrice" method="POST">
+            <input name="price" type="text" class="admin-item-block-field" value="<%= clvPrice %>">
+            <input type="submit" class="admin-item-block-button" value="Change">
+        </form>
+    </div> 
+
+
+
+    <div class="admin-item-block admin-item-block-2">
+        <div class="admin-item-block-hint">
+            Change Free CLV Bonus (%)
+        </div>
+        <form action="/admin/updateDefaultBuyBonus" method="POST">
+            <input name="amount" type="text" class="admin-item-block-field" value="<%= defaultBonus * 100 %>">
+            <input type="submit" class="admin-item-block-button" value="Change">
+        </form>
+    </div> 
+
+
+
+    <div class="admin-item-block admin-item-block-2">
+        <div class="admin-item-block-hint">
+           Lockup for Premium CLV (Months)
+        </div>
+        <form action="/admin/updateDefaultPremiumLockup" method="POST">
+            <input name="amount" type="text" class="admin-item-block-field" value="<%= defaultPremiumLockdown %>">
+            <input type="submit" class="admin-item-block-button" value="Change">
+        </form>
+    </div> 
+
+
+    <div class="admin-item-block admin-item-block-2">
+        <div class="admin-item-block-hint">
+           Lockup for Free CLV (Months)
+        </div>
+        <form action="/admin/updateDefaultFreeLockup" method="POST">
+            <input name="amount" type="text" class="admin-item-block-field" value="<%= defaultFreeLockdown %>">
+            <input type="submit" class="admin-item-block-button" value="Change">
+        </form>
+    </div> 
+
+
+    <div class="admin-item-block admin-item-block-2">
+        <div class="admin-item-block-hint">
+           Sell per Month Restriction (%)
+        </div>
+        <form action="/admin/updateDefaultSellRestriction" method="POST">
+            <input name="amount" type="text" class="admin-item-block-field" value="<%= defaultSellRestriction %>">
+            <input type="submit" class="admin-item-block-button" value="Change">
+        </form>
+    </div> 
+
+
+    <div class="admin-item-block admin-item-block-2">
+        <div class="admin-item-block-hint">
+           Change Referral Signup Cap
+        </div>
+        <form action="/admin/updateDefaultBonusCap" method="POST">
+            <input name="amount" type="text" class="admin-item-block-field" value="<%= defaultBonusCap %>">
+            <input type="submit" class="admin-item-block-button" value="Change">
+        </form>
+    </div> 
+
+
+
+
+
+    <div class="admin-item-block admin-item-block-2">
+        <div class="admin-item-block-hint">
+            Affiliate Percent % (1st Year)
+        </div>
+        <form action="/admin/updateReferralPercent" method="POST">
+            <input name="percent" type="text" class="admin-item-block-field" value="<%= referralPercent * 100 %>">
+            <input type="submit" class="admin-item-block-button" value="Change">
+        </form>
+    </div> 
+
+
+
+
+
+    <div class="admin-item-block admin-item-block-2">
+        <div class="admin-item-block-hint">
+            Affiliate Percent % (2nd Year)
+        </div>
+        <form action="/admin/updateReferralPercent2" method="POST">
+            <input name="percent" type="text" class="admin-item-block-field" value="<%= referralPercent2 * 100 %>">
+            <input type="submit" class="admin-item-block-button" value="Change">
+        </form>
+    </div> 
+
+
+
+
+
+    <div class="admin-item-block admin-item-block-2">
+        <div class="admin-item-block-hint">
+            Affiliate Percent % (3rd Year+)
+        </div>
+        <form action="/admin/updateReferralPercent3" method="POST">
+            <input name="percent" type="text" class="admin-item-block-field" value="<%= referralPercent3 * 100 %>">
+            <input type="submit" class="admin-item-block-button" value="Change">
+        </form>
+    </div> 
+
+
+
+
+
+    <br><br><br>
+
+</div>

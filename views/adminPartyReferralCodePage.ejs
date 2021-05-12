@@ -1,0 +1,37 @@
+<a href="/admin/partyReferralCodes">← Back to Party Referral Link List</a><br><br>
+<h1>Party Referral Link</h1>
+<div class="admin-line">
+    <div class="admin-hint"> Party Referral Code</div>
+    <div class="admin-value"><%= partyReferralCode.codeReferral %></div>
+</div>
+
+<div class="admin-line">
+    <div class="admin-hint"> Citizens Amount</div>
+    <div class="admin-value"><%= partyReferralCode.users.length %></div>
+</div>
+
+<div class="admin-line">
+    <div class="admin-hint">Party Citizens</div>
+<% partyReferralCode.users.forEach(function(user) { %>
+    <div class="admin-hint admin-hint-ct"><%= user.referralCode %> (<%= user.percent %>%)  </div>
+<% }); %>
+</div>
+
+<div class="admin-line">
+    <div class="admin-hint"> Party Referral Link </div>
+    <div class="admin-value">https://clovercountry.org/wallet/create/?referral=<%= partyReferralCode.codeReferral %></div>
+</div>
+
+<div class="admin-line">
+    <div class="admin-hint">Referral Signup Cap </div>
+    <div class="admin-value"><%= bonusCap.capValue %> / <%= bonusCap.capLimit %></div>
+</div>
+
+
+<h1>Change Referral Signup Cap</h1>
+
+
+<form action="/admin/changeBonusCap/?codeReferral=<%= partyReferralCode.codeReferral %>" method="POST">
+    <input name="amount" type="text" class="admin-input" value="<%= bonusCap.capLimit %>" />
+    <input type="submit"  class="admin-input-submit" value="Update">
+</form>

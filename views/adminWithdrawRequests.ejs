@@ -1,0 +1,16 @@
+<a href="/admin/dashboard">← Back to Dashboard</a><br><br>
+<h1>Withdraw requests</h1>
+
+<% requests.forEach(function(item) { %>
+
+    <div class="citizen-line">
+        <div class="citizen-line-item"> $<%= item.usdAmount %> CLV  </div>
+        <div class="citizen-line-item"> <%= item.firstName %></div>
+        <div class="citizen-line-item"> <%= item.lastName %></div>     
+        <div class="citizen-line-item"> <%= item.email %></div>  
+        <div class="citizen-line-item"> <%= item.phone %></div>  
+        <div class="citizen-line-item"> <%= item.info %></div>    
+        <div class="citizen-line-item"> <%= item.date %></div>    
+    </div>
+
+<% }) %>

@@ -1,0 +1,119 @@
+<a href="/admin/main">← Back to Dashboard</a><br><br>
+<h1>Create Split-referral Link</h1>
+<form action="/admin/createPartyReferralCode" method="POST">
+<div class="admin-line">
+    <input required type="checkbox" class="admin-input" name="user1" name="scales" checked>
+    <select required name="id1" class="admin-input admin-select">
+        <option value="" disabled selected hidden>Select Citizen</option>
+        <% wallets.forEach(function(item) { %>
+            <option class="admin-option" value="<%= item.codeReferral %>"><%= item.email %></option>
+        <% }); %>
+    </select>
+    <input oninput="checkSum()" required id="per1" name="per1" type="text" class="admin-input" value="0" />
+    <div class="admin-hint">%</div>
+</div>
+
+<div class="admin-line">
+    <input required type="checkbox" class="admin-input" name="user2" name="scales" checked>
+    <select required name="id2" class="admin-input admin-select">
+        <option value="" disabled selected hidden>Select Citizen</option>
+        <% wallets.forEach(function(item) { %>
+            <option class="admin-option" value="<%= item.codeReferral %>"><%= item.email %></option>
+        <% }); %>
+    </select>
+    <input oninput="checkSum()" required id="per2" name="per2" type="text" class="admin-input" value="0" />
+    <div class="admin-hint">%</div>
+</div>
+
+
+<div class="admin-line">
+    <input  type="checkbox" class="admin-input" id="user3" name="user3" >
+    <select name="id3" class="admin-input admin-select">
+        <option value="" disabled selected hidden>Select Citizen</option>
+        <% wallets.forEach(function(item) { %>
+            <option class="admin-option" value="<%= item.codeReferral %>"><%= item.email %></option>
+        <% }); %>
+    </select>
+    <input oninput="checkSum()" id="per3" name="per3" type="text" class="admin-input" value="0" />
+    <div class="admin-hint">%</div>
+</div>
+
+<div class="admin-line">
+    <input  type="checkbox" class="admin-input" id="user4" name="user4" >
+    <select  name="id4" class="admin-input admin-select">
+        <option value="" disabled selected hidden>Select Citizen</option>
+        <% wallets.forEach(function(item) { %>
+            <option class="admin-option" value="<%= item.codeReferral %>"><%= item.email %></option>
+        <% }); %>
+    </select>
+    <input oninput="checkSum()" id="per4"  name="per4" type="text" class="admin-input" value="0" />
+    <div class="admin-hint">%</div>
+</div>
+
+
+<div class="admin-line">
+    <input  type="checkbox" class="admin-input" id="user5" name="user5" >
+    <select  name="id5" class="admin-input admin-select">
+        <option value="" disabled selected hidden>Select Citizen</option>
+        <% wallets.forEach(function(item) { %>
+            <option class="admin-option" value="<%= item.codeReferral %>"><%= item.email %></option>
+        <% }); %>
+    </select>
+    <input oninput="checkSum()" id="per5"  name="per5" type="text" class="admin-input" value="0" />
+    <div class="admin-hint">%</div>
+</div>
+
+<div class="admin-line">
+    <div id="sum-hint" class="admin-hint"><span class="red">Percentage sum must be 100%!</span></div>
+    <input id="sum-hidden" required type="checkbox" class="admin-input">
+   
+</div>
+
+
+
+
+<div class="admin-line">
+    <input type="submit"  class="admin-input-submit" value="Create referral link">
+</div>
+
+</form>
+
+
+<script>
+    function checkSum(){
+        var per1 = Number(document.getElementById("per1").value);
+        var per2 = Number(document.getElementById("per2").value);
+        var per3 = Number(document.getElementById("per3").value);
+        var per4 = Number(document.getElementById("per4").value);
+        var per5 = Number(document.getElementById("per5").value);
+        
+        var sum = per1 + per2 + per3 + per4 + per5;
+
+        if(sum !== 100){
+            document.getElementById("sum-hidden").checked = false;
+            document.getElementById("sum-hint").innerHTML = "<span class='red'>Percentage sum must be 100%!</span>"
+        }else{
+            document.getElementById("sum-hidden").checked = true;
+            document.getElementById("sum-hint").innerHTML = "<span class='green'>Percentage sum is 100%</span>"
+        }
+    }
+</script>
+
+
+
+
+<h1>Split-referral Links</h1>
+
+
+
+<% partyReferralCode.forEach(function(item) { %>
+    <div class="admin-line">
+        <div class="admin-hint admin-hint-ct"> <%= item.users.length %> <i class="fas fa-user"></i></div>
+
+        <% item.users.forEach(function(user) { %>
+            <div class="admin-hint admin-hint-ct"><%= user.referralCode %> (<%= user.percent %>%)  </div>
+        <% }); %>
+        <div class="admin-hint admin-hint-ct"> https://clovercountry.org/wallet/create/?referral=<%= item.codeReferral %></div>
+        <a href="/admin/viewPartyReferralCode/?codeReferral=<%= item.codeReferral %>" class="admin-link">View more...</a>
+    </div>
+<% }); %>

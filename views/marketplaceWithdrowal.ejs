@@ -1,0 +1,129 @@
+<div class="left-part">
+
+
+
+    <div class="lp-menu">
+
+        <a href="/dashboard" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-chart-pie"></i></div>
+            <div class="lpmi-text">Dashboard</div>
+        </a>
+
+        <a href="/marketplace/buy" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-arrow-circle-up"></i></div>
+            <div class="lpmi-text">Buy CLV</div>
+        </a>
+
+        <a href="/marketplace/sell" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-arrow-circle-down"></i></div>
+            <div class="lpmi-text">Sell CLV</div>
+        </a>
+
+        <a href="/transactions" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-history"></i></div>
+            <div class="lpmi-text">Transactions</div>
+        </a>
+
+        <a href="/referral" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-user-plus"></i></div>
+            <div class="lpmi-text">Referrals</div>
+        </a>
+
+
+        <a href="/wallet/logout" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-sign-out-alt"></i></div>
+            <div class="lpmi-text">Sign out</div>
+        </a>
+
+    </div>
+
+</div>
+
+<div class="main-part-wrapper">
+    <div class="main-part">
+
+
+        <div class="mp-top-bar">
+
+            <a href="#" class="ptb-item-logo">&nbsp;</a>
+            <div class="ptb-item ptb-item-selected">Clover Marketplace</div>
+        </div>
+    
+        <div class="mp-spacer"></div>
+
+        <div class="marketplace-header">
+            <div class="marketplace-header-text">Withdraw you US$</div>
+        </div>
+        <form action="/marketplace/createWithdrawRequest" method="POST">
+        <div class="withdraw-box">
+            <div class="withdraw-box-title">Withdraw to PayPal Account</div>
+            <div class="withdraw-box-hint">You Balance</div>
+            <div class="withdraw-box-value">$<%= wallet.usdBalance %></div>
+            <div class="withdraw-box-hint">Amount</div>
+            <div class="withdraw-box-input-box">
+                <input oninput="checkAmount()" required type="text" id="amount-field" name="amount" class="withdraw-field" value="" >
+                <div class="input-right-part">$</div>
+            </div>
+
+            <div class="withdraw-box-hint">Enter email or phone number<br>associated with your PayPal Account </div>
+
+            <input required name="info" type="text" class="paypal-field" placeholder="Enter email or phone number">
+
+      
+
+            <input type="submit" class="withdraw-submit" value="Submit You Request">
+            </form>
+        </div>
+
+
+        
+
+    </div>
+    </div>
+</div>
+
+
+<script>
+    var usdAmount = <%= wallet.usdBalance %>;
+    function checkAmount(){
+
+        var enteredValue = document.getElementById('amount-field').value;
+
+        if(enteredValue >= usdAmount){
+            document.getElementById('amount-field').value = usdAmount;
+        }
+
+    }
+
+
+
+    // Restricts input for the given textbox to the given inputFilter function.
+function setInputFilter(textbox, inputFilter) {
+  ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
+    textbox.addEventListener(event, function() {
+      if (inputFilter(this.value)) {
+        this.oldValue = this.value;
+        this.oldSelectionStart = this.selectionStart;
+        this.oldSelectionEnd = this.selectionEnd;
+      } else if (this.hasOwnProperty("oldValue")) {
+        this.value = this.oldValue;
+        this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+      } else {
+        this.value = "";
+      }
+    });
+  });
+}
+
+
+
+setInputFilter(document.getElementById("amount-field"), function(value) {
+  return /^\d*\.?\d*$/.test(value); // Allow digits and '.' only, using a RegExp
+});
+ 
+
+
+</script>
+
+
+

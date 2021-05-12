@@ -1,0 +1,119 @@
+<a href="/admin/citizens">← Back to Citizen List</a><br><br>
+<h1><i class="fas fa-id-card-alt"></i> Citizen Info</h1>
+<div class="admin-line">
+    <div class="admin-hint"> Citizen ID</div>
+    <div class="admin-value"><%= wallet.codeReferral %></div>
+</div>
+<div class="admin-line">
+    <div class="admin-hint">First Name</div>
+    <div class="admin-value"><%= wallet.firstName %></div>
+</div>
+
+<div class="admin-line">
+    <div class="admin-hint">Last Name</div>
+    <div class="admin-value"><%= wallet.lastName %></div>
+</div>
+
+<div class="admin-line">
+    <div class="admin-hint">Gender</div>
+    <div class="admin-value"><%= wallet.gender %></div>
+</div>
+
+<div class="admin-line">
+    <div class="admin-hint">Email</div>
+    <div class="admin-value"><%= wallet.email %></div>
+</div>
+
+<div class="admin-line">
+    <div class="admin-hint">Phone Number</div>
+    <div class="admin-value"><%= wallet.phone %></div>
+</div>
+
+<div class="admin-line">
+    <div class="admin-hint">Invited By</div>
+    <div class="admin-value"><%= wallet.referralSource %></div>
+</div>
+
+<h1><i class="fas fa-battery-three-quarters"></i> Bonus Cap</h1>
+<div class="admin-line">
+    <div class="admin-hint">Referral Signup Cap</div>
+    <div class="admin-value"><%= bonusCap.capValue %> / <%= bonusCap.capLimit %></div>
+</div>
+<div class="admin-line">
+    <div class="admin-hint">Change Referral Signup Cap</div>
+    <form action="/admin/changeBonusCap/?codeReferral=<%= wallet.codeReferral %>" method="POST">
+        <input name="amount" type="text" class="admin-input" value="<%= bonusCap.capLimit %>" />
+        <input type="submit"  class="admin-input-submit" value="Update">
+    </form>
+</div>
+
+
+<h1><i class="fas fa-coins"></i> Balance Info</h1>
+<div class="admin-line">
+    <div class="admin-hint">Premium CLV Amount</div>
+    <div class="admin-value"><%= premiumClv %></div>
+</div>
+
+<div class="admin-line">
+    <div class="admin-hint">Free CLV Total Amount</div>
+    <div class="admin-value"><%= freeClv %></div>
+</div>
+
+<div class="admin-line">
+    <div class="admin-hint">Referral Free CLV Amount</div>
+    <div class="admin-value"><%= referralClv %></div>
+</div>
+
+<div class="admin-line">
+    <div class="admin-hint">USD Balance</div>
+    <div class="admin-value"><%= wallet.usdWallet %></div>
+</div>
+
+<div class="admin-line">
+    <div class="admin-hint">USD Bonus</div>
+    <form action="/admin/updateUsdBonus/?id=<%= wallet._id %>" method="POST">
+        <input name="amount" type="text" class="admin-input" value="<%= wallet.usdBonus %>" />
+        <input type="submit"  class="admin-input-submit" value="Update">
+    </form>
+</div>
+
+<h1><i class="fas fa-cog"></i> Citizen Controls</h1>
+<div class="admin-line">
+
+    <div class="admin-hint">Add Premium CLV</div>
+    <form action="/admin/addPremiumClv/?id=<%= wallet._id %>" method="POST">
+        <input name="amount" type="text" class="admin-input" value="0" />
+        <input type="submit"  class="admin-input-submit" value="Add">
+    </form>
+</div>
+
+<div class="admin-line">
+    <div class="admin-hint">Add Free CLV</div>
+    <form action="/admin/addFreeClv/?id=<%= wallet._id %>" method="POST">
+        <input name="amount" type="text" class="admin-input" value="0" />
+        <input type="submit"  class="admin-input-submit" value="Add">
+    </form>
+</div>
+
+
+<div class="admin-line">
+    <div class="admin-hint">Add Cashback US$</div>
+    <form action="/admin/addCashback/?id=<%= wallet._id %>" method="POST">
+        <input name="amount" type="text" class="admin-input" value="0" />
+        <input type="submit"  class="admin-input-submit" value="Add">
+    </form>
+</div>
+
+
+<div class="admin-line">
+    <div class="admin-hint">Change Reputation Index</div>
+    <form action="/admin/changeReputationIndex" method="POST">
+        <input name="id" type="hidden"  value="<%= wallet._id %>">
+        <input name="amount" type="text" class="admin-input" value="<%= wallet.reputationIndex %>"/>
+        <input type="submit"  class="admin-input-submit" value="Update">
+    </form>
+</div>
+
+
+
+

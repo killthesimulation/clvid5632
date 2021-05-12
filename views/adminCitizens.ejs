@@ -1,0 +1,13 @@
+<a href="/admin/dashboard">← Back to Dashboard</a><br><br>
+<h1>Citizens List</h1>
+<% wallets.forEach(function(item) { %>
+    <div class="citizen-line">
+        <div class="citizen-line-item"> <%= item.codeReferral %></div>
+        <div class="citizen-line-item"> <%= item.date %></div>
+        <div class="citizen-line-item"> <%= item.email %></div>
+        <div class="citizen-line-item"> <%= item.lastName %></div>
+        <div class="citizen-line-item"> <%= item.firstName %></div>
+        <div class="citizen-line-item"><a href="/admin/citizen/?id=<%= item._id %>" class="admin-link">View more...</a></div>
+        
+    </div>
+<% }); %>

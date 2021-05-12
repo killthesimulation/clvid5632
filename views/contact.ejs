@@ -1,0 +1,53 @@
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<div class="contact-slide">
+    <div class="inner">
+        <div class="contact-header">
+            Get in Touch
+        </div>
+        <div class="contact-form">
+            <%- include('partials/messages'); %>
+            <form id="contactForm" action="/contact" method="POST">
+                <div class="input-wrapper">
+                    <div class="form-contact-hint">Enter your Name *</div>
+                    <input type="text" name="firstName" class="contact-form-input" value="<%= typeof firstName != 'undefined' ? firstName : '' %>">
+                </div>
+
+                <div class="input-wrapper">
+                    <div class="form-contact-hint">Enter your Last Name</div>
+                    <input type="text" name="lastName" class="contact-form-input" value="<%= typeof lastName != 'undefined' ? lastName : '' %>">
+                </div>
+
+                <div class="input-wrapper">
+                    <div class="form-contact-hint">Enter your Email *</div>
+                    <input required type="email"  name="email" class="contact-form-input" value="<%= typeof email != 'undefined' ? email : '' %>">
+                </div>
+
+
+                <div class="input-wrapper">
+                    <div class="form-contact-hint">Enter your Message *</div>
+                    <textarea class="contact-form-message" name="message" id="" cols="30" rows="10"><%= typeof message != 'undefined' ? message : '' %></textarea>
+                </div>
+
+                <div class="input-wrapper">
+                    <div class="g-recaptcha" data-sitekey="6LdjfNkZAAAAABT3TVa--WhAgV9Ek2Cqckho7ZXO"></div>
+                </div>
+
+                <div class="input-wrapper">
+                    <input type="submit"   class="contact-form-submit" value="Submit">
+                </div>
+
+            </form>
+
+            <div class="form-address">
+                Address:<br>
+PayPro OÜ
+ (registry code 14725474)<br>
+Lasnamäe linnaosa, Peterburi tee 47, 11415
+<br>
+Harju maakond, Tallinn, Estonia
+            </div>
+
+        </div>
+    </div>
+</div>

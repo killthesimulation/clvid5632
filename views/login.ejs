@@ -1,0 +1,47 @@
+<div class="signup-slide">
+    <div class="signup-slide-inner inner">
+        <div class="form-wrapper">
+            <div class="signup-hint-1">
+                Welcome, citizen! Log in to
+            </div>
+            <div class="signup-hint-2">
+                Clover Country
+            </div>
+            <div class="signup-hint-3">
+                Fill the form below
+            </div>
+
+
+
+            <div class="signup-form">
+
+                <%- include('partials/messages'); %>
+
+
+
+                <form action="/wallet/login" method="POST">
+                    <div class="form-hint-0 form-hint-0">Citizen account</div>
+                    <div class="form-hint">Enter your email</div>
+                    <input class="signup-input" type="email" id="email" name="email" 
+                        value="<%= typeof email != 'undefined' ? email : '' %>" />
+                        <div class="form-hint">Enter your password</div>
+                    <input class="signup-input" type="password" id="password" name="password" 
+                        value="<%= typeof password != 'undefined' ? password : '' %>" />
+
+                    <button class="signup-input signup-submit" type="submit">LOG IN</button>
+                    <a href="/wallet/forgot" class="form-link">Forgot password?</a>
+                    <a href="/wallet/create" class="form-link">Don't have an account?<br>Create one right now!</a>
+
+                </form>
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

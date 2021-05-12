@@ -1,0 +1,550 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: inherit;
+    font-family: "PoppinsRegular";
+}
+
+body {
+    font-size: 0;
+    text-align: center;
+}
+
+div {
+    display: inline-block;
+}
+
+body {
+    background-color: #edf1f4;
+}
+
+.top-line-bg {
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #000103;
+    background-image: url(../img/abc1.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.wallet-screen-wrapper {
+    width: 90%;
+    max-width: 500px;
+    padding-bottom: 160px;
+}
+
+.wallet-title-1 {
+    margin-top: 35px;
+    float: left;
+    width: 50px;
+    height: 50px;
+    background-image: url(../img/_logo3.png);
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: top;
+}
+
+.wallet-title-2 {
+    margin-top: 35px;
+    float: right;
+    vertical-align: top;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 18px;
+    height: 50px;
+    line-height: 50px;
+    font-family: "PoppinsExtraLight";
+}
+
+.wallet-title-3 {
+    margin-top: 35px;
+    width: 100%;
+    height: 1px;
+    background-color: #fcb44b;
+}
+
+.wallet-0-block {
+    margin-top: 35px;
+    margin-bottom: 35px;
+    padding: 10px 0;
+    overflow: hidden;
+    border-radius: 25px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid #fcb44b;
+    box-shadow: 0px 0px 97px 0px rgba(85, 40, 137, 0.7), inset 0px 0px 120px 0px rgba(85, 40, 137, 0.97);
+}
+
+.w-b-0-title {
+    color: rgba(255, 255, 255, 0.3);
+    width: 100%;
+    font-size: 16px;
+    font-family: "PoppinsLight";
+}
+
+.w-0-p {
+    width: 100%;
+    font-size: 40px;
+    color: #fcb44b;
+    margin-top: 5px;
+    font-family: "PoppinsThin";
+    text-shadow: 0px 0px 20px black;
+}
+
+.price-orange {
+    color: white;
+    font-family: "PoppinsBold";
+}
+
+.wallet-1-block {
+    padding: 20px;
+    overflow: hidden;
+    border-radius: 15px;
+    width: 100%;
+    background: white;
+    vertical-align: top;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 97px 0px rgba(85, 40, 137, 0.7), inset 0px 0px 120px 0px rgba(85, 40, 137, 0.15);
+}
+
+.w-block {}
+
+.wallet-1-block-before {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    width: 90%;
+    max-width: 75%;
+    height: 15px;
+    background-color: #ced4e2;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    height: 25px;
+    border-top: 5px solid rgba(0, 0, 0, 0.1);
+    border-left: 5px solid rgba(0, 0, 0, 0.1);
+    border-right: 5px solid rgba(0, 0, 0, 0.1);
+    background-color: #ced4e2;
+}
+
+.wallet-1-block-after-1 {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    width: 90%;
+    max-width: 75%;
+    height: 15px;
+    background-color: #ced4e2;
+    margin-bottom: 30px;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    height: 25px;
+    border-bottom: 5px solid rgba(0, 0, 0, 0.1);
+    border-left: 5px solid rgba(0, 0, 0, 0.1);
+    border-right: 5px solid rgba(0, 0, 0, 0.1);
+    background-color: #ced4e2;
+}
+
+.wallet-1-block-after-2 {
+    display: none;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    width: 80%;
+    margin-bottom: 30px;
+    height: 15px;
+    background-color: #aab1c3;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+}
+
+.w-b-1-title {
+    width: 100%;
+    font-size: 16px;
+    font-family: "PoppinsRegular";
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.w-b-1-avatar {
+    margin-top: 10px;
+    background-color: #000103;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    font-size: 80px;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.w-b-1-name {
+    margin-top: 15px;
+    width: 100%;
+    font-size: 22px;
+    font-family: "PoppinsRegular";
+    color: rgba(0, 0, 0, 1);
+    letter-spacing: 0.1px;
+}
+
+.w-b-1-email {
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 17px;
+    font-family: "PoppinsLight";
+    color: rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.2px;
+}
+
+.w-b-1-title-2 {
+    margin-top: 10px;
+    width: 100%;
+    font-size: 14px;
+    font-family: "PoppinsRegular";
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.w-b-1-clv {
+    margin-top: 5px;
+    font-size: 40px;
+    line-height: 40px;
+    font-family: "PoppinsLight";
+    color: #fcb44b;
+}
+
+.w-thin {
+    font-family: "PoppinsThin";
+    color: black;
+}
+
+.w-b-1-usd {
+    margin-top: 5px;
+    width: 100%;
+    font-size: 22px;
+    line-height: 26px;
+    font-family: "PoppinsExtraLight";
+    color: black;
+}
+
+.w-b-1-buttons {
+    width: 100%;
+}
+
+.w-b-1-button {
+    background-color: white;
+    width: 50%;
+    cursor: pointer;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    display: inline-block;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+}
+
+.w-b-1-button-1 {
+    background-color: #fcb44b;
+    color: #562889;
+}
+
+.w-b-1-button-2 {
+    background-color: #562889;
+    color: #fcb44b;
+}
+
+.wallet-2-block {
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 300px;
+    height: 50px;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
+}
+
+.wallet-title-4 {
+    margin-top: 15px;
+    width: 100%;
+    font-size: 16px;
+    font-family: "PoppinsLight";
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.wallet-3-block {
+    text-align: center;
+    vertical-align: top;
+    padding: 20px;
+    overflow: hidden;
+    border-radius: 15px;
+    width: 100%;
+    background: white;
+    box-shadow: 0px 0px 97px 0px rgba(85, 40, 137, 0.7), inset 0px 0px 120px 0px rgba(85, 40, 137, 0.15);
+}
+
+.w-b-2-title {
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 16px;
+    font-family: "PoppinsRegular";
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.w-b-3-title {
+    width: 100%;
+    font-size: 14px;
+    font-family: "PoppinsRegular";
+    color: #fcb44b;
+}
+
+.w-b-3-amount {
+    width: 100%;
+    margin-top: 5px;
+    font-size: 20px;
+    line-height: 38px;
+    font-family: "PoppinsLight";
+    color: #562889;
+}
+
+.w-b-3-link {
+    width: 100%;
+    margin-top: 5px;
+    font-size: 12px;
+    line-height: 16px;
+    font-family: "PoppinsLight";
+    color: black;
+}
+
+.w-3-spacer {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.wallet-4-block {
+    vertical-align: top;
+    padding: 20px;
+    overflow: hidden;
+    border-radius: 15px;
+    width: 100%;
+    background: white;
+    box-shadow: 0px 0px 97px 0px rgba(85, 40, 137, 0.7), inset 0px 0px 120px 0px rgba(85, 40, 137, 0.15);
+}
+
+.w-bot-bar {
+    z-index: 9999;
+    height: 90px;
+    width: 95%;
+    max-width: 400px;
+    border-radius: 17px;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0px 0px 97px 0px rgba(0, 0, 0, 0.3);
+}
+
+.w-bot-bar-menu {}
+
+.w-bot-bar-menu-item {
+    cursor: pointer;
+    text-align: center;
+    width: 80px;
+    height: 90px;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.w-bot-bar-menu-item-selected {
+    color: rgba(85, 40, 137, 1);
+}
+
+.w-bot-bar-menu-item-icon {
+    padding-top: 17px;
+    padding-bottom: 6px;
+    vertical-align: top;
+    width: 100%;
+    line-height: 40px;
+    font-size: 35px;
+}
+
+.w-bot-bar-menu-item-selected .w-bot-bar-menu-item-icon {
+    color: #fcb44b;
+    color: rgba(85, 40, 137, 1);
+}
+
+.w-bot-bar-menu-item-text {
+    width: 100%;
+    height: 20px;
+    line-height: 10px;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    font-family: "PoppinsLight";
+}
+
+.w-bot-bar-menu-item-text a {
+    font-family: "PoppinsExtraLight";
+    letter-spacing: 0.5px;
+}
+
+.market-1-block {
+    padding: 20px;
+    overflow: hidden;
+    border-radius: 15px;
+    width: 100%;
+    background: white;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+}
+
+.m-b-1-title {
+    margin-top: 10px;
+    width: 100%;
+    font-size: 40px;
+    line-height: 40px;
+    font-family: "PoppinsLight";
+    letter-spacing: 0.5px;
+    color: #fcb44b;
+}
+
+.m-b-1-line {
+    margin-top: 20px;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.m-b-1-amount {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 65px;
+    line-height: 65px;
+    color: #562889;
+    font-family: "PoppinsSemiBold";
+}
+
+.m-b-1-hint {
+    margin-top: 25px;
+    width: 100%;
+    font-size: 16px;
+    line-height: 16px;
+    color: #fcb44b;
+    font-family: "PoppinsLight";
+}
+
+.m-b-1-usd {
+    margin-top: 10px;
+    width: 100%;
+    font-size: 36px;
+    line-height: 36px;
+    color: rgba(0, 0, 0, 1);
+    font-family: "PoppinsLight";
+}
+
+.m-b-1-bonus {
+    background-color: rgba(0, 0, 0, 0.07);
+    margin-top: 5px;
+    font-size: 12px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 15px;
+    color: rgba(0, 0, 0, 0.5);
+    font-family: "PoppinsRegular";
+}
+
+.m-b-1-button {
+    border-radius: 15px;
+    border: none;
+    -webkit-appearance: none;
+    margin-top: 25px;
+    width: 280px;
+    height: 60px;
+    background-color: #fcb44b;
+    color: #562889;
+    font-family: "PoppinsSemiBold";
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.market-1-block-after-1 {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    width: 90%;
+    max-width: 370px;
+    height: 15px;
+    margin-bottom: 40px;
+    background-color: #ced4e2;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+}
+
+.popup-sell {
+    display: none;
+    padding: 30px;
+    width: 90%;
+    height: 200px;
+    max-width: 300px;
+    font-size: 16px;
+    background: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border-radius: 15px;
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
+}
+
+.popup-sell-close {
+    cursor: pointer;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    text-align: center;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.wallet-5-block {
+    vertical-align: top;
+    margin-top: 50px;
+    padding: 40px;
+    overflow: hidden;
+    border-radius: 15px;
+    width: 100%;
+    max-width: none;
+    background: black;
+}
+
+.w-5-text {
+    text-align: left;
+    width: 100%;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: "PoppinsLight";
+}
+
+.w-b-5-title {
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 16px;
+    font-family: "PoppinsRegular";
+    color: #fcb44b;
+}

@@ -1,0 +1,111 @@
+<h1>Dashboard Info</h1>
+
+
+
+<div class="admin-line">
+    <div class="admin-hint">You have Premium CLV</div>
+    <div class="admin-value"><%= clvLeft %> CLV</div>
+</div>
+
+
+<div class="admin-line">
+    <div class="admin-hint">Premium CLV Sold</div>
+    <div class="admin-value"><%= premiumClvAmount %> CLV</div>
+</div>
+
+<div class="admin-line">
+    <div class="admin-hint">Free CLV Given</div>
+    <div class="admin-value"><%= freeClvAmount %> CLV</div>
+</div>
+
+<div class="admin-line">
+    <div class="admin-hint">Referral Free CLV Given</div>
+    <div class="admin-value"><%= referralClvAmount %> CLV</div>
+</div>
+
+
+<h1>Marketplace</h1>
+<div class="admin-line">
+    <a href="/admin/sellOrders" class="admin-link">View Sell Orders</a>
+    <a href="/admin/withdrawRequests" class="admin-link">View Withdraw Requests</a>
+</div>
+
+
+<h1>Default Free CLV Bonus</h1>
+<div class="admin-line">
+    <div class="admin-hint">Default Free CLV Bonus (%)</div>
+    <form action="/admin/updateDefaultBuyBonus" method="POST">
+        <input name="amount" type="text" class="admin-input" value="<%= defaultBonus * 100 %>" />
+        <input type="submit"  class="admin-input-submit" value="Update">
+    </form>
+</div>
+    
+
+
+<h1>Citizens & Transactions Info</h1>
+
+<div class="admin-line">
+    <div class="admin-hint">Citizens Amount</div>
+    <div class="admin-value"><%= walletsAmount %></div>
+    <a href="/admin/citizens" class="admin-link">View all citizens</a>
+</div>
+
+<div class="admin-line">
+    <div class="admin-hint">Transactions Amount</div>
+    <div class="admin-value"><%= transactionsAmount %></div>
+    <a href="/admin/transactions" class="admin-link">View all transactions</a>
+</div>
+
+<h1>Split-referral Links</h1>
+<div class="admin-line">
+    <div class="admin-hint">Split-referral Links Amount</div>
+    <div class="admin-value"><%= partyReferralCodeAmount %></div>
+    <a href="/admin/partyReferralCodes" class="admin-link">View all Split-referral Links / Create</a>
+</div>
+
+
+
+<h1>Clover Controls</h1>
+
+
+<div class="admin-line">
+    <div class="admin-hint">CLV Price US$</div>
+    <form action="/admin/updateClvPrice" method="POST">
+        <input name="price" type="text" class="admin-input" value="<%= clvPrice %>" />
+        <input type="submit"  class="admin-input-submit" value="Update">
+    </form>
+</div>
+
+<div class="admin-line">
+    <div class="admin-hint">Affiliate Percent % (1st Year)</div>
+    <form action="/admin/updateReferralPercent" method="POST">
+        <input name="percent" type="text" class="admin-input" value="<%= referralPercent %>" />
+        <input type="submit"  class="admin-input-submit" value="Update">
+    </form>
+</div>
+
+<div class="admin-line">
+    <div class="admin-hint">Affiliate Percent % (2nd Year)</div>
+    <form action="/admin/updateReferralPercent2" method="POST">
+        <input name="percent" type="text" class="admin-input" value="<%= referralPercent2 %>" />
+        <input type="submit"  class="admin-input-submit" value="Update">
+    </form>
+</div>
+
+
+<div class="admin-line">
+    <div class="admin-hint">Affiliate Percent % (3rd Year+)</div>
+    <form action="/admin/updateReferralPercent3" method="POST">
+        <input name="percent" type="text" class="admin-input" value="<%= referralPercent3 %>" />
+        <input type="submit"  class="admin-input-submit" value="Update">
+    </form>
+</div>
+
+<div class="admin-line">
+    <div class="admin-hint">Default Referral Signup Cap</div>
+    <form action="/admin/updateDefaultBonusCap" method="POST">
+        <input name="amount" type="text" class="admin-input" value="<%= defaultBonusCap %>" />
+        <input type="submit"  class="admin-input-submit" value="Update">
+    </form>
+</div>
+

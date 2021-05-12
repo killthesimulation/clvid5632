@@ -1,0 +1,276 @@
+<a href="/admin/citizens" class="admin-page-link"><i class="fas fa-arrow-left"></i> Back to citizens </a>
+
+<div class="admin-page-title">
+    Citizen Information
+</div>
+
+<div class="admin-profile-page-icon-wrapper">
+    <div class="admin-profile-page-icon">
+        <i class="fas fa-user"></i>
+    </div>
+</div>
+
+    <div class="admin-profile-page-name">
+        <%= wallet.firstName %> <%= wallet.lastName %>
+    </div>
+
+    <div class="admin-profile-page-email">
+        <%= wallet.email %>
+    </div>
+
+
+
+    <div class="admin-profile-page-items-wrapper">
+        <div class="admin-item-block">
+            <div class="admin-item-block-hint">
+                Citizen ID
+            </div>
+            <div class="admin-item-block-value">
+                <%= wallet.codeReferral %>
+            </div>
+        </div> 
+
+
+        <div class="admin-item-block">
+            <div class="admin-item-block-hint">
+                First Name
+            </div>
+            <div class="admin-item-block-value">
+                <%= wallet.firstName %>
+            </div>
+        </div> 
+
+
+        <div class="admin-item-block">
+            <div class="admin-item-block-hint">
+                Last Name 
+            </div>
+            <div class="admin-item-block-value">
+                <%= wallet.lastName %>
+            </div>
+        </div> 
+
+
+        <div class="admin-item-block">
+            <div class="admin-item-block-hint">
+                Gender
+            </div>
+            <div class="admin-item-block-value">
+                <%= wallet.gender %>
+            </div>
+        </div> 
+
+
+        <div class="admin-item-block">
+            <div class="admin-item-block-hint">
+                Email
+            </div>
+            <div class="admin-item-block-value">
+                <%= wallet.email %>
+            </div>
+        </div> 
+
+
+
+        <div class="admin-item-block">
+            <div class="admin-item-block-hint">
+                Phone Number
+            </div>
+            <div class="admin-item-block-value">
+                <%= wallet.phone %>
+            </div>
+        </div> 
+
+
+        <div class="admin-item-block">
+            <div class="admin-item-block-hint">
+                Invited By
+            </div>
+            <div class="admin-item-block-value">
+                <%= wallet.referralSource %>
+            </div>
+        </div> 
+
+
+
+        <div class="admin-item-block">
+            <div class="admin-item-block-hint">
+                Join date
+            </div>
+            <div class="admin-item-block-value">
+                <%= wallet.date %>
+            </div>
+        </div> 
+    </div>
+
+
+
+    <div class="admin-page-title admin-page-title-2">
+        Balance Information
+    </div>
+
+
+
+    <div class="admin-profile-page-items-wrapper">
+        <div class="admin-item-block">
+            <div class="admin-item-block-hint">
+                Premium CLV Amount
+            </div>
+            <div class="admin-item-block-value">
+                <%= premiumClv %> CLV
+            </div>
+        </div> 
+
+
+        <div class="admin-item-block">
+            <div class="admin-item-block-hint">
+                Free CLV Total Amount
+            </div>
+            <div class="admin-item-block-value">
+                <%= freeClv %> CLV
+            </div>
+        </div> 
+
+
+     
+
+
+        <div class="admin-item-block">
+            <div class="admin-item-block-hint">
+                Referral Free CLV Amount
+            </div>
+            <div class="admin-item-block-value">
+                <%= referralClv %> CLV
+            </div>
+        </div> 
+
+
+        <div class="admin-item-block">
+            <div class="admin-item-block-hint">
+                USD Balance
+            </div>
+            <div class="admin-item-block-value">
+                $<%= wallet.usdWallet %>
+            </div>
+        </div> 
+
+
+
+        <div class="admin-item-block">
+            <div class="admin-item-block-hint">
+                Referral Signup Cap
+            </div>
+            <div class="admin-item-block-value">
+                <%= bonusCap.capValue %> / <%= bonusCap.capLimit %>
+            </div>
+        </div> 
+
+
+        
+    </div>
+
+
+
+    <div class="admin-page-title admin-page-title-2">
+        Citizen Controls
+    </div>
+
+
+    <div class="admin-profile-page-items-wrapper">
+
+
+        <div class="admin-item-block admin-item-block-2">
+            <div class="admin-item-block-hint">
+                Give Premium CLV
+            </div>
+            <form action="/admin/addPremiumClv/?id=<%= wallet._id %>" method="POST">
+                <input name="amount" type="text" class="admin-item-block-field" value="0">
+                <input type="submit" class="admin-item-block-button" value="Give">
+            </form>
+        </div> 
+
+
+        <div class="admin-item-block admin-item-block-2">
+            <div class="admin-item-block-hint">
+                Give Free CLV
+            </div>
+            <form action="/admin/addFreeClv/?id=<%= wallet._id %>" method="POST">
+            <input name="amount" type="text" class="admin-item-block-field" value="0">
+            <input type="submit" class="admin-item-block-button" value="Give">
+            </form>
+        </div> 
+
+
+        <div class="admin-item-block admin-item-block-2">
+            <div class="admin-item-block-hint">
+                Give US$
+            </div>
+            <form action="/admin/addCashback/?id=<%= wallet._id %>" method="POST">
+            <input name="amount" type="text" class="admin-item-block-field" value="0">
+            <input type="submit" class="admin-item-block-button" value="Give">
+            </form>
+            </form>
+        </div> 
+
+
+        <div class="admin-item-block admin-item-block-2">
+            <div class="admin-item-block-hint">
+                Change Reputation Index (1-10)
+            </div>
+            <form action="/admin/changeReputationIndex" method="POST">
+            <input name="id" type="hidden"  value="<%= wallet._id %>">
+            <input  name="amount" type="text" class="admin-item-block-field" value="<%= wallet.reputationIndex %>">
+            <input type="submit" class="admin-item-block-button" value="Change">
+            </form>
+        </div> 
+
+
+        <div class="admin-item-block admin-item-block-2">
+            <div class="admin-item-block-hint">
+                Change Referral Signup Cap (Users)
+            </div>
+            <form action="/admin/changeBonusCap/?codeReferral=<%= wallet.codeReferral %>" method="POST">
+            <input name="amount" type="text" class="admin-item-block-field" value="<%= bonusCap.capLimit %>" />
+            <input type="submit" class="admin-item-block-button" value="Change">
+            </form>
+        </div> 
+
+
+        <div class="admin-item-block admin-item-block-2">
+            <div class="admin-item-block-hint">
+                Change Premium CLV Lockup (Mnth)
+            </div>
+            <form action="/admin/setPersonalLockDownPeriod" method="POST">
+            <input name="id" type="hidden"  value="<%= wallet._id %>">
+            <input name="amount" type="text" class="admin-item-block-field" value="<%= wallet.restrictionLockPeriod %>">
+            <input type="submit" class="admin-item-block-button" value="Change">
+            </form>
+        </div> 
+
+
+        <div class="admin-item-block admin-item-block-2">
+            <div class="admin-item-block-hint">
+                Change Free CLV Lockup (Mnth)
+            </div>
+            <form action="/admin/setPersonalLockDownPeriodFree" method="POST">
+                <input name="id" type="hidden"  value="<%= wallet._id %>">
+                <input name="amount" type="text" class="admin-item-block-field" value="<%= wallet.restrictionLockPeriodFree %>">
+                <input type="submit" class="admin-item-block-button" value="Change">
+                </form>
+        </div> 
+
+
+        <div class="admin-item-block admin-item-block-2">
+            <div class="admin-item-block-hint">
+                Set Sell Restriction (% Per Mnth)
+            </div>
+            <form action="/admin/setPersonalRestriction" method="POST">
+                <input name="id" type="hidden"  value="<%= wallet._id %>">
+                <input name="amount" type="text" class="admin-item-block-field" value="<%= wallet.restrictionPercentSellPerMounth %>">
+                <input type="submit" class="admin-item-block-button" value="Change">
+                </form>
+        </div> 
+
+        <br><br><br>
+
+    </div>

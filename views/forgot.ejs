@@ -1,0 +1,40 @@
+<div class="signup-slide">
+    <div class="signup-slide-inner inner">
+        <div class="form-wrapper">
+            <div class="signup-hint-1">
+               Reset password
+            </div>
+         
+
+
+
+            <div class="signup-form">
+
+                <%- include('partials/messages'); %>
+
+
+
+                <form action="/wallet/forgot" method="POST">
+                 
+                    <div class="form-hint">Enter your email</div>
+                    <input required class="signup-input" type="email" id="email" name="email" 
+                        value="<%= typeof email != 'undefined' ? email : '' %>" />
+                      
+                  
+                    <button class="signup-input signup-submit" type="submit">Reset Password</button>
+
+        
+
+                </form>
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

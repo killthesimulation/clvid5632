@@ -1,0 +1,90 @@
+<a href="/admin/main" class="admin-page-link"><i class="fas fa-arrow-left"></i> Back to main page </a>
+
+<div class="admin-page-title">
+    Clover Withdrawal Requests
+</div>
+
+
+<div class="admin-new-withdrawals-list">
+    <div class="admin-new-withdrawals-list-line">
+
+        <div class="admin-new-withdrawals-list-line-item">
+            Amount US$
+        </div>
+
+        <div class="admin-new-withdrawals-list-line-item">
+            Date
+        </div>
+
+        <div class="admin-new-withdrawals-list-line-item">
+            First Name
+        </div>
+
+    
+        <div class="admin-new-withdrawals-list-line-item">
+            Last Name
+        </div>
+
+        <div class="admin-new-withdrawals-list-line-item">
+            Email
+        </div>
+
+
+        <div class="admin-new-withdrawals-list-line-item">
+           Phone
+        </div>
+
+        <div class="admin-new-withdrawals-list-line-item">
+            Message
+        </div>
+
+    
+
+      
+
+      
+    </div>
+
+
+    <% requests.forEach(function(item) { %>
+    <div class="admin-new-withdrawals-list-line">
+
+        <div class="admin-new-withdrawals-list-line-item">
+            $<%= item.usdAmount %>
+        </div>
+
+        <div class="admin-new-withdrawals-list-line-item">
+            <%= item.date.getDate() %>.<%= item.date.getMonth() + 1 %>.<%= item.date.getFullYear()%>
+        </div>
+
+        <div class="admin-new-withdrawals-list-line-item">
+            <%= item.firstName %>
+        </div>
+
+    
+
+        <div class="admin-new-withdrawals-list-line-item">
+            <%= item.lastName %>
+        </div>
+
+        <div class="admin-new-withdrawals-list-line-item">
+            <%= item.email %>
+        </div>
+
+
+        <div class="admin-new-withdrawals-list-line-item">
+            <%= item.phone %>
+        </div>
+
+        <div class="admin-new-withdrawals-list-line-item">
+            <%= item.info %>
+        </div>
+
+    </div>
+
+
+    <% }); %>
+
+
+
+</div>

@@ -1,0 +1,106 @@
+<a href="/admin/main" class="admin-page-link"><i class="fas fa-arrow-left"></i> Back to main page </a>
+
+<a href="/admin/exportTransactions" class="admin-page-link"><i class="fas fa-user-friends"></i> Export Transactions to Email </a>
+
+<div class="admin-page-title">
+    Clover Transactions
+</div>
+
+
+<div class="admin-new-transactions-list">
+    <div class="admin-new-transactions-list-line">
+
+        <div class="admin-new-transactions-list-line-item">
+            User ID
+        </div>
+
+        <div class="admin-new-transactions-list-line-item">
+            Type
+        </div>
+
+        <div class="admin-new-transactions-list-line-item">
+            First Name
+        </div>
+
+     
+
+        <div class="admin-new-transactions-list-line-item">
+            Last Name
+        </div>
+
+        <div class="admin-new-transactions-list-line-item">
+            Email
+        </div>
+
+
+        <div class="admin-new-transactions-list-line-item">
+            Date (dd/mm/yyyy)
+        </div>
+
+        <div class="admin-new-transactions-list-line-item">
+            CLV Amount
+        </div>
+
+        <div class="admin-new-transactions-list-line-item">
+            US$ Total
+        </div>
+
+        <div class="admin-new-transactions-list-line-item">
+            Price $
+        </div>
+
+      
+    </div>
+
+
+    <% transactions.forEach(function(item) { %>
+    <a href="/admin/citizen/?id=<%= item.userIdHash %>" class="admin-new-transactions-list-line">
+
+        <div class="admin-new-transactions-list-line-item">
+            <%= item.userId %>
+        </div>
+
+        <div class="admin-new-transactions-list-line-item">
+            <%= item.info %>
+        </div>
+
+        <div class="admin-new-transactions-list-line-item">
+            <%= item.firstName %>
+        </div>
+
+    
+
+        <div class="admin-new-transactions-list-line-item">
+            <%= item.lastName %>
+        </div>
+
+        <div class="admin-new-transactions-list-line-item">
+            <%= item.email %>
+        </div>
+
+
+        <div class="admin-new-transactions-list-line-item">
+            <%= item.date.getDate() %>.<%= item.date.getMonth() + 1 %>.<%= item.date.getFullYear()%>
+        </div>
+
+        <div class="admin-new-transactions-list-line-item">
+            <%= item.clv %> CLV
+        </div>
+
+        <div class="admin-new-transactions-list-line-item">
+            $<%= item.usd %>
+        </div>
+
+        <div class="admin-new-transactions-list-line-item">
+            $<%= item.price %>
+        </div>
+
+      
+    </a>
+
+
+    <% }); %>
+
+
+
+</div>

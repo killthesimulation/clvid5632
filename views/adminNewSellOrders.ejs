@@ -1,0 +1,56 @@
+<a href="/admin/main" class="admin-page-link"><i class="fas fa-arrow-left"></i> Back to main page </a>
+
+<div class="admin-page-title">
+    Sell Orders List
+</div>
+
+
+<div class="admin-new-sell-orders-list">
+    <div class="admin-new-sell-orders-list-line">
+
+
+        <div class="admin-new-sell-orders-list-line-item">
+            Amount
+        </div>
+
+        <div class="admin-new-sell-orders-list-line-item">
+            Active
+        </div>
+
+        <div class="admin-new-sell-orders-list-line-item">
+            Date (dd/mm/yyyy)
+
+        </div>
+
+
+      
+    </div>
+
+
+    <% sellOrders.forEach(function(item) { %>
+    <a href="/admin/citizen/?id=<%= item.ownerId %>" class="admin-new-sell-orders-list-line">
+
+        <div class="admin-new-sell-orders-list-line-item">
+            <%= item.amount %> CLV
+        </div>
+
+        <div class="admin-new-sell-orders-list-line-item">
+            <%= item.active %>
+        </div>
+
+        <div class="admin-new-sell-orders-list-line-item">
+            <%= item.dateCreated.getDate() %>.<%= item.dateCreated.getMonth() + 1 %>.<%= item.dateCreated.getFullYear()%>
+        </div>
+
+    
+
+
+      
+    </a>
+
+
+    <% }); %>
+
+
+
+</div>

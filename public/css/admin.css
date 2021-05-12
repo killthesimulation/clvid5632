@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: inherit;
+}
+
+body{
+    padding: 30px;
+    font-family: 'Lato', sans-serif;
+    color: rgba(255, 255, 255, 0.75);
+    background-color:  rgba(36, 36, 36, 1);
+    background: linear-gradient(135deg, rgba(36, 36, 36, 1) 0%, rgba(6, 6, 6, 1) 100%);
+    background-attachment: fixed;
+}
+
+div {
+    display: inline-block;
+}
+
+h1{
+    color: white;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 26px;
+    font-weight: 300;
+}
+
+.admin-line{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.admin-hint{
+    
+    vertical-align: middle;
+    font-size: 13px;
+    padding: 0;
+    background: none;
+    font-weight: 400;
+}
+
+.admin-value{
+    vertical-align: middle;
+    border-radius: 15px;
+    font-size: 14px;
+   
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-left: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fcb54c;
+    letter-spacing: 1px;
+}
+
+.admin-link{
+    text-decoration: underline;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 15px;
+    font-size: 14px;
+    padding: 10px;
+    color: #fcb54c;
+}
+
+.admin-input{
+    vertical-align: middle;
+    border-radius: 15px;
+    font-size: 14px;
+    text-align: center;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-left: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fcb54c;
+    letter-spacing: 1px;
+}
+
+.admin-input-submit{
+    cursor: pointer;
+    background: none;
+    border: none;
+    text-decoration: underline;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 15px;
+    font-size: 14px;
+    padding: 10px;
+}
+
+form{
+    display: inline-block;
+}
+
+.admin-hint-ct{
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+}
+
+.admin-option{
+    color: black;
+}
+
+.admin-select{
+    text-align: center;
+    max-width: none;
+    display: inline-block;
+    width: 300px;
+}
+
+.red{
+    color: red;
+}
+
+.green{
+    color: lightgreen;
+}
+
+#sum-hidden{
+    opacity: 0;
+}
+
+
+.admin-hint-ts{
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    width: 9.5%;
+}
+
+.citizen-line{
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.citizen-line-item{
+    overflow: hidden;
+    vertical-align: top;
+    width: 16%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    text-align: left;
+   
+}

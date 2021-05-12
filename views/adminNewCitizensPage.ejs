@@ -1,0 +1,64 @@
+<a href="/admin/main" class="admin-page-link"><i class="fas fa-arrow-left"></i> Back to main page </a>
+
+<a href="/admin/exportCitizens" class="admin-page-link"><i class="fas fa-user-friends"></i> Export Citizens to Email </a>
+
+<div class="admin-page-title">
+    Clover Citizens
+</div>
+
+<div class="admin-citizens-top-wrapper">
+    <div class="admin-item-block">
+        <div class="admin-item-block-hint">
+            Citizens Amount
+        </div>
+        <div class="admin-item-block-value">
+            <%= citizens.length %>
+        </div>
+    </div> 
+
+
+    <div class="admin-item-block">
+        <div class="admin-item-block-hint">
+            Female Citizens
+        </div>
+        <div class="admin-item-block-value">
+            <%= femalePercent %>%
+        </div>
+    </div> 
+</div>
+
+<div class="admin-sort-wrapper">
+    <a href="/admin/citizens?order=name" class="admin-page-link admin-page-link-2">Sort By Name (A-Z) </a>
+    <a href="/admin/citizens?order=date2" class="admin-page-link admin-page-link-2">Sort By Date (Newest) </a>
+    <a href="/admin/citizens?order=date" class="admin-page-link admin-page-link-2">Sort By Date (Oldest) </a>
+</div>
+
+
+<% citizens.forEach(function(item) { %>
+<a href="/admin/citizen/?id=<%= item._id %>" class="admin-citizen-item">
+    
+  
+
+    <div class="admin-citizen-item-icon">
+        <i class="fas fa-user"></i>
+    </div>
+
+    <div class="admin-citizen-item-id">
+        <%= item.codeReferral %>
+    </div>
+   
+    <div class="admin-citizen-item-email">
+        <%= item.email %>
+    </div>
+    <div class="admin-citizen-item-firstname">
+        <%= item.firstName %>
+    </div>
+    <div class="admin-citizen-item-lastname">
+        <%= item.lastName %>
+    </div>
+   
+</a>
+
+<% }); %>
+
+

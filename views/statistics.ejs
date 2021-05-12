@@ -1,0 +1,224 @@
+<div class="statistics-slide">
+
+    <div class="counter-wrapper">
+
+        <div class="counter-header"> Clover Country Marketplace</div>
+
+        <div class="counter-timer-hint">
+            <span id="ct"></span>
+        </div>
+
+
+
+        <div class="wallet-0-block">
+            <div class="w-b-0-title">CLV Price</div>
+            <div class="w-0-p">CLV/USD <span class="price-orange"> <%= price %> </span></div>
+
+        </div>
+
+        <div class="stat-buttons">
+            <a href="/marketplace/buy" class="stat-button-item">Buy CLV</a>
+            <a href="/marketplace/sell" class="stat-button-item">Sell CLV</a>
+        </div>
+
+
+        <script type="text/javascript">
+            function display_c() {
+                var refresh = 1000; // Refresh rate in milli seconds
+                mytime = setTimeout('display_ct()', refresh)
+            }
+
+            function display_ct() {
+                var x = new Date()
+
+
+                document.getElementById('ct').innerHTML = x;
+                display_c();
+            }
+
+
+
+
+            display_ct();
+        </script>
+
+
+
+
+        <div class="stat-params">
+
+
+            <div class="stat-param-item stat-param-item-big">
+                <div class="stat-param-item-hint">
+                    CLV Market Cap
+                </div>
+                <div class="stat-param-item-value stat-param-item-value-big">
+                    $<%= marketCap %>
+                </div>
+            </div>
+
+            <div class="stat-param-line"></div>
+
+
+         
+
+
+
+
+            <div class="stat-param-item">
+                <div class="stat-param-item-hint">
+                    Total Citizens
+                </div>
+                <div class="stat-param-item-value">
+                    <%= citizens %>
+                </div>
+            </div>
+
+            <div class="stat-param-item">
+                <div class="stat-param-item-hint">
+                    Female Citizens
+                </div>
+                <div class="stat-param-item-value">
+                    <%= female %>%
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="stat-param-item">
+                <div class="stat-param-item-hint">
+                    Transaction Volume
+                </div>
+                <div class="stat-param-item-value">
+                    <%= clvSold %>
+                </div>
+            </div>
+
+            <div class="stat-param-item">
+                <div class="stat-param-item-hint">
+                    Transactions No.
+                </div>
+                <div class="stat-param-item-value">
+                    <%= operationsAmount %>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="counter-timer-hint-2">
+            Price - Action of CLV / USD
+        </div>
+
+        <div class="counter-timer-hint-3">
+            Latest 10 Price Changes @ CLV Marketplace
+        </div>
+
+
+
+
+       
+
+
+    <div class="action-chart">
+        <canvas id="chart"></canvas>
+    </div>
+
+
+
+
+
+    </div>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+<script>
+
+    var priceString = "<%= priceChange.price %>";
+    var priceArray = priceString.split(",");
+
+
+    var dateString =  "<%=  priceChange.date %>";
+    var dateArray = dateString.split(",");
+
+    var ctx = document.getElementById('chart').getContext('2d');
+
+    var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: dateArray,
+        datasets: [{
+            borderColor: '#fcb54c',
+            data: priceArray,
+            backgroundColor: 'rgba(0,0,0,0)',
+            pointBackgroundColor: '#fcb54c',
+            pointRadius: 5,
+        }],
+        
+    },
+
+    // Configuration options go here
+    options: {
+        elements: {
+        line: {
+            tension: 0
+        }
+    },
+        maintainAspectRatio: false,
+        legend: {
+            display: false
+        },
+        scales: {
+            xAxes: [{
+                gridLines: {
+                    display:true,
+                    drawBorder: false,
+                    color: "rgba(255,255,255,0.05)"
+                },
+                ticks: {
+                    maxTicksLimit: 10,
+                    fontFamily: "PoppinsRegular",
+                    padding: 5,
+                },
+                scaleLabel: {
+                    display: false,
+                    labelString: 'Days',
+                    fontFamily: "PoppinsRegular",
+                },
+            }],
+            yAxes: [{
+                gridLines: {
+                    display:true,
+                    drawBorder: false,
+                    color: "rgba(255,255,255,0.05)"
+                },
+                ticks: {
+                    fontFamily: "PoppinsRegular",
+                    padding: 5
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'US$ Price',
+                    fontFamily: "PoppinsRegular",
+                },
+            }]
+        }
+    }
+});
+
+</script>

@@ -1,0 +1,129 @@
+<div class="left-part">
+
+
+    <div class="lp-menu">
+
+        <a href="/dashboard" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-chart-pie"></i></div>
+            <div class="lpmi-text">Dashboard</div>
+        </a>
+
+        <a href="/marketplace/buy" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-arrow-circle-up"></i></div>
+            <div class="lpmi-text">Buy CLV</div>
+        </a>
+
+        <a href="/marketplace/sell" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-arrow-circle-down"></i></div>
+            <div class="lpmi-text">Sell CLV</div>
+        </a>
+
+        <a href="/transactions" class="lpm-item lpm-item-selected">
+            <div class="lpmi-icon"><i class="fas fa-history"></i></div>
+            <div class="lpmi-text">Transactions</div>
+        </a>
+
+        <a href="/referral" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-user-plus"></i></div>
+            <div class="lpmi-text">Referrals</div>
+        </a>
+
+
+        <a href="/wallet/logout" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-sign-out-alt"></i></div>
+            <div class="lpmi-text">Sign out</div>
+        </a>
+
+    </div>
+
+
+</div>
+
+
+<div class="main-part-wrapper">
+<div class="main-part">
+
+    <div class="mp-top-bar">
+
+        <a href="#" class="ptb-item-logo">&nbsp;</a>
+        <div class="ptb-item ptb-item-selected">Transactions</div>
+    </div>
+
+    <div class="mp-spacer"></div>
+
+
+
+
+
+  
+
+
+    <div class="mp-spacer-title">Your Transactions</div>
+
+
+    <div class="clv-table">
+        <div class="wide-logo"></div>
+        <div class="ts-first-line">
+            <div class="ts-first-line-item">Amount</div>
+            <div class="ts-first-line-item">Price</div>
+            <div class="ts-first-line-item">US$</div>
+            <div class="ts-first-line-item">Date</div>
+            <div class="ts-first-line-item mobile-no">From</div>
+            <div class="ts-first-line-item">Info</div>
+            
+            
+        </div>
+
+
+
+
+                        <% if(typeof transactions != 'undefined') { %>
+                            <% transactions.forEach(function(item) { %>
+
+                                <div class="ct-line">
+                         
+                                    <div class="ts-line-item ts-line-item-amount">
+                                        <%= item.clv %> CLV
+                                    </div>
+
+                                    <div class="ts-line-item">
+                                       $ <%= item.price %>
+                                    </div>
+                                    
+
+                                    <div class="ts-line-item">
+                                       $ <%= item.usd %>
+                                    </div>
+
+                                    <div class="ts-line-item">
+                                        <%= item.date %>
+                                    </div>
+
+                                    <div class="ts-line-item mobile-no">
+                                        <%= item.from %>
+                                    </div>
+
+                                    <div class="ts-line-item">
+                                        <%= item.info %>
+                                    </div>
+                                   
+                            
+
+                                </div>
+
+                                <% }); %>
+                                    <% } %>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+</div>
+</div>

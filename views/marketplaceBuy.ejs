@@ -1,0 +1,478 @@
+<div class="left-part">
+
+
+
+    <div class="lp-menu">
+
+        <a href="/dashboard" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-chart-pie"></i></div>
+            <div class="lpmi-text">Dashboard</div>
+        </a>
+
+        <a href="/marketplace/buy" class="lpm-item lpm-item-selected">
+            <div class="lpmi-icon"><i class="fas fa-arrow-circle-up"></i></div>
+            <div class="lpmi-text">Buy CLV</div>
+        </a>
+
+        <a href="/marketplace/sell" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-arrow-circle-down"></i></div>
+            <div class="lpmi-text">Sell CLV</div>
+        </a>
+
+        <a href="/transactions" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-history"></i></div>
+            <div class="lpmi-text">Transactions</div>
+        </a>
+
+        <a href="/referral" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-user-plus"></i></div>
+            <div class="lpmi-text">Referrals</div>
+        </a>
+
+
+        <a href="/wallet/logout" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-sign-out-alt"></i></div>
+            <div class="lpmi-text">Sign out</div>
+        </a>
+
+    </div>
+
+</div>
+
+<div class="main-part-wrapper">
+    <div class="main-part">
+
+
+        <div class="mp-top-bar">
+
+            <a href="#" class="ptb-item-logo">&nbsp;</a>
+            <div class="ptb-item ptb-item-selected">Clover Marketplace</div>
+        </div>
+    
+        <div class="mp-spacer"></div>
+
+
+        <div id="utc-clock"></div>
+
+        <div class="marketplace-header">
+            <div class="marketplace-header-text">Buy CLV</div>
+           
+           
+        </div>
+
+        <div class="marketplace-header-price">CLV/USD <span class="price-bold"><%= price %></span></div>
+
+        <div class="markerplace-line markerplace-line-1">
+            <div class="markerplace-line-hint">
+                <div class="markerplace-line-hint-step">1</div>
+                <div class="markerplace-line-hint-text">I want to buy</div>
+            </div>
+
+            
+
+            <div class="buy-amount-buttons">
+                <div class="buy-button">
+                    <div onclick="decreaseTotalClv(10)" class="increase-decrease-button">-</div>
+                    <div class="buy-amount-value">10 <span class="buy-thin">CLV</span></div>
+                    <div onclick="increaseTotalClv(10)" class="increase-decrease-button">+</div>
+                </div>
+
+                <div class="buy-button">
+                    <div onclick="decreaseTotalClv(100)" class="increase-decrease-button">-</div>
+                    <div class="buy-amount-value">100  <span class="buy-thin">CLV</span></div>
+                    <div onclick="increaseTotalClv(100)" class="increase-decrease-button">+</div>
+                </div>
+
+                <div class="buy-button">
+                    <div onclick="decreaseTotalClv(1000)" class="increase-decrease-button">-</div>
+                    <div class="buy-amount-value">1000  <span class="buy-thin">CLV</span></div>
+                    <div onclick="increaseTotalClv(1000)" class="increase-decrease-button">+</div>
+                </div>
+
+            </div>
+
+            <div class="buy-min-max">
+                <div class="buy-min-max-item">
+                    min. 10 CLV
+                </div>
+                <div class="buy-min-max-item">
+                    max. 10 000 CLV
+                </div>
+            </div>
+       
+
+            <div class="buy-amount-total">
+                <div class="buy-amount-total-hint">I am buying </div>
+                <div class="buy-amount-total-value"><span id="totalClv">10</span> <span class="buy-thin">CLV</span></div>
+            </div>
+
+      
+
+            <div class="buy-amount-total">
+                <div class="buy-amount-total-hint">I will pay </div>
+                <div class="buy-amount-total-value"><span class="buy-thin">$</span><span id="totalUsd">12</span></div>
+            </div>
+
+           
+        </div>
+
+        <div class="buy-spacer buy-spacer-1">
+            <i class="fas fa-arrow-down"></i>
+        </div>
+
+
+
+        <div class="markerplace-line markerplace-line-2">
+            <div class="markerplace-line-hint">
+                <div class="markerplace-line-hint-step">2</div>
+                <div class="markerplace-line-hint-text">My Bonus</div> 
+                
+            </div>
+            <div id="bonus-percent" class="markerplace-line-hint-bonus"></div>
+
+          
+
+            <div class="buy-promocode">
+                <div class="buy-promocode-hint">I have a Bonus Code</div>
+
+              
+
+                <input id="promoCode" type="text" class="buy-promocode-field" placeholder="Insert Bonus Code Here">
+                <input type="submit" class="buy-promocode-redeem" value="Redeem" onclick="checkBonusCode()">
+            </div>
+
+            <div id="bonus-success" class="buy-promocode-success">Your Bonus Code Applied!</div>
+            <div id="bonus-false" class="buy-promocode-false">Bonus Code is not valid</div>
+          
+            <div class="buy-amount-total">
+                <div class="buy-amount-total-hint">You will get </div>
+                <div class="buy-amount-total-value"><span id="totalBonusClv">10</span> <span class="buy-thin">Free CLV</span></div>
+            </div>
+
+           
+        </div>
+
+        <div class="buy-spacer buy-spacer-1">
+            <i class="fas fa-arrow-down"></i>
+        </div>
+
+        <div class="markerplace-line markerplace-line-3">
+            <div class="markerplace-line-hint">
+                <div class="markerplace-line-hint-step">3</div>
+                <div class="markerplace-line-hint-text">Nominate Your Recipients</div>
+            </div>
+
+
+            <div class="buy-subhint">
+                Clover Country will voluntarily donate 20% of the amount you bought.<br>
+                You can select up to 4 social entities/charities and assign the 20%, in multiples of 5%. 
+            </div>
+
+            <div class="donate-line">
+                <div class="donate-info">Humanitarian Wallet</div>
+                <div class="donate-buttons">
+                    <div onclick="decreaseDonatePercent(1)" class="donate-decrease-increate">-</div>
+                    <div class="donate-value"><span id="donate-1">0</span><span class="buy-thin">%</span></div>
+                    <div onclick="increaseDonatePercent(1)" class="donate-decrease-increate">+</div>
+                </div>
+            </div>
+
+            <div class="donate-line">
+                <div class="donate-info">Environment Wallet</div>
+                <div class="donate-buttons">
+                    <div onclick="decreaseDonatePercent(2)" class="donate-decrease-increate">-</div>
+                    <div class="donate-value"><span id="donate-2">0</span><span class="buy-thin">%</span></div>
+                    <div onclick="increaseDonatePercent(2)" class="donate-decrease-increate">+</div>
+                </div>
+            </div>
+
+            <div class="donate-line">
+                <div class="donate-info">Agape Wallet</div>
+                <div class="donate-buttons">
+                    <div onclick="decreaseDonatePercent(3)" class="donate-decrease-increate">-</div>
+                    <div class="donate-value"><span id="donate-3">0</span><span class="buy-thin">%</span></div>
+                    <div onclick="increaseDonatePercent(3)" class="donate-decrease-increate">+</div>
+                </div>
+            </div>
+
+            <div class="donate-line">
+                <div class="donate-info"><a href="https://charitywater.org" target="_blank">Charity Water <span class="donate-learn-more">Discover...</span></a></div>
+                <div class="donate-buttons">
+                    <div onclick="decreaseDonatePercent(4)" class="donate-decrease-increate">-</div>
+                    <div class="donate-value"><span id="donate-4">0</span><span class="buy-thin">%</span></div>
+                    <div onclick="increaseDonatePercent(4)" class="donate-decrease-increate">+</div>
+                </div>
+            </div>
+
+            <div class="donate-line">
+                <div class="donate-info"><a href="https://mittikerang.org" target="_blank">Mittike Rang <span class="donate-learn-more">Discover...</span></a></div>
+                <div class="donate-buttons">
+                    <div onclick="decreaseDonatePercent(5)" class="donate-decrease-increate">-</div>
+                    <div class="donate-value"><span id="donate-5">0</span><span class="buy-thin">%</span></div>
+                    <div onclick="increaseDonatePercent(5)" class="donate-decrease-increate">+</div>
+                </div>
+            </div>
+
+            <div class="donate-line">
+                <div class="donate-info"><a href="https://ark2030.org" target="_blank">Ark 2030 <span class="donate-learn-more">Discover...</span></a></div>
+                <div class="donate-buttons">
+                    <div onclick="decreaseDonatePercent(6)" class="donate-decrease-increate">-</div>
+                    <div class="donate-value"><span id="donate-6">0</span><span class="buy-thin">%</span></div>
+                    <div onclick="increaseDonatePercent(6)" class="donate-decrease-increate">+</div>
+                </div>
+            </div>
+          
+          
+            <div class="buy-amount-total">
+                <div class="buy-amount-total-hint">Clover Country will donate </div>
+                <div class="buy-amount-total-value"><span id="totalDonate">0</span> <span class="buy-thin">CLV</span></div>
+            </div>
+
+           
+        </div>
+
+
+        <div class="buy-spacer buy-spacer-1">
+            <i class="fas fa-arrow-down"></i>
+        </div>
+
+
+        <div class="markerplace-line markerplace-line-4">
+            <div class="markerplace-line-hint">
+                <div class="markerplace-line-hint-step">4</div>
+                <div class="markerplace-line-hint-text">Checkout</div>
+            </div>
+
+            <div class="buy-subhint">
+                You will be redirected to PayPal website to proceed with your order
+            </div>
+
+            <div class="buy-amount-total buy-amount-total-2">
+                <div class="buy-amount-total-hint">You will get </div>
+                <div class="buy-amount-total-value"><span id="totalClv-2"></span> <span class="buy-thin">Premium CLV</span></div>
+            </div>
+
+            <div class="buy-amount-total">
+                <div class="buy-amount-total-hint">You will get as a Bonus</div>
+                <div class="buy-amount-total-value"><span id="totalBonusClv-2"></span> <span class="buy-thin">Free CLV</span></div>
+            </div>
+
+            <div class="buy-amount-total">
+                <div class="buy-amount-total-hint">Clover Country will donate </div>
+                <div class="buy-amount-total-value"><span id="totalDonate-2">0</span> <span class="buy-thin">Free CLV</span></div>
+            </div>
+
+            <div class="buy-amount-total">
+                <div class="buy-amount-total-hint">You will need to pay </div>
+                <div class="buy-amount-total-value"><span class="buy-thin">$</span><span id="totalUsd-2"></span></div>
+            </div>
+
+            <form action="/marketplace/payment" method="POST">
+
+
+                <input type="hidden" id="formTotalClv" name="formTotalClv" value="">
+                <input type="hidden" id="formTotalBonusClv" name="formTotalBonusClv" value="">
+                <input type="hidden" id="bonusCode" name="bonusCode" value="">
+
+                <input type="hidden" id="formPercent1" name="formPercent1" value="">
+                <input type="hidden" id="formPercent2" name="formPercent2" value="">
+                <input type="hidden" id="formPercent3" name="formPercent3" value="">
+                <input type="hidden" id="formPercent4" name="formPercent4" value="">
+                <input type="hidden" id="formPercent5" name="formPercent5" value="">
+                <input type="hidden" id="formPercent6" name="formPercent6" value="">
+                
+
+            <input type="submit" class="buy-confirm-button" value="">
+
+            </form>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    function display_c() {
+        var refresh = 1000; // Refresh rate in milli seconds
+        mytime = setTimeout('display_ct()', refresh)
+    }
+
+    function display_ct() {
+        var x = new Date()
+
+
+        document.getElementById('utc-clock').innerHTML = x;
+        display_c();
+    }
+
+
+
+
+    display_ct();
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<script>
+    var price = <%= price %>;
+    var bonus = <%= defaultBonus %>;
+
+    var totalClv = 10;
+    var totalUsd;
+    var totalBonusClv;
+    var totalDonate;
+
+
+    var donatePercent = [0,0,0,0,0,0];
+
+
+
+
+    function increaseTotalClv(amount){
+        if(totalClv <= 10000){
+            totalClv = totalClv + amount;
+        }
+
+        if(totalClv >= 10000){
+            totalClv = 10000;
+        }
+
+        updateAll()
+    }
+
+
+    function decreaseTotalClv(amount){
+        if(totalClv >= 10){
+            totalClv = totalClv - amount;
+        }
+
+        if(totalClv <= 10){
+            totalClv = 10;
+        }
+
+        updateAll()
+    }
+
+
+    function updateValues(){
+        totalUsd = (totalClv * price).toFixed(2);
+        totalBonusClv = totalClv * bonus;
+
+        document.getElementById('bonus-percent').innerHTML = (bonus * 100) + '%';
+
+
+        document.getElementById('totalClv').innerHTML = totalClv;
+        document.getElementById('totalUsd').innerHTML = totalUsd;
+        document.getElementById('totalBonusClv').innerHTML = totalBonusClv;
+
+        document.getElementById('totalClv-2').innerHTML = totalClv;
+        document.getElementById('totalUsd-2').innerHTML = totalUsd;
+        document.getElementById('totalBonusClv-2').innerHTML = totalBonusClv;
+    }
+
+
+    function increaseDonatePercent(wallet){
+        var arrayIndex = wallet - 1;
+        var percentSum = donatePercent.reduce((a, b) => a + b, 0);
+
+        if(percentSum < 20){
+            donatePercent[arrayIndex] = donatePercent[arrayIndex] + 5;
+        }
+
+        document.getElementById(`donate-${wallet}`).innerHTML = donatePercent[arrayIndex];
+        updateAll()
+    }
+
+    function decreaseDonatePercent(wallet){
+        var arrayIndex = wallet - 1;
+        var percentSum = donatePercent.reduce((a, b) => a + b, 0);
+
+        if(percentSum > 0 && donatePercent[arrayIndex] > 0){
+            donatePercent[arrayIndex] = donatePercent[arrayIndex] - 5;
+        }
+
+        document.getElementById(`donate-${wallet}`).innerHTML = donatePercent[arrayIndex];
+        updateAll()
+    }
+
+    function getDonationAmount(){
+        var percentSum = donatePercent.reduce((a, b) => a + b, 0);
+        totalDonate = (percentSum / 100) * totalClv;
+
+        document.getElementById('totalDonate').innerHTML = totalDonate;
+        document.getElementById('totalDonate-2').innerHTML = totalDonate;
+    }
+
+
+    function updateForm(){
+        document.getElementById('formTotalClv').value = totalClv;
+        document.getElementById('formTotalBonusClv').value = totalBonusClv;
+
+        document.getElementById('formPercent1').value = donatePercent[0];
+        document.getElementById('formPercent2').value = donatePercent[1];
+        document.getElementById('formPercent3').value = donatePercent[2];
+        document.getElementById('formPercent4').value = donatePercent[3];
+        document.getElementById('formPercent5').value = donatePercent[4];
+        document.getElementById('formPercent6').value = donatePercent[5];
+    }
+
+    function updateAll(){
+        updateValues();
+        getDonationAmount();
+        updateForm();
+    }
+
+
+
+    function checkBonusCode(){
+      const code = document.getElementById('promoCode').value;
+
+
+      $.ajax({
+            type: "POST",
+            url: `/marketplace/checkBonusCode`,
+            cache: false,
+            data: `code=${code}`,
+            success: function(data){
+
+                if(data.status){
+
+                    if(data.percent > bonus){
+                        bonus = data.percent;
+                        updateAll();
+                        document.getElementById('promoCode').value = '';
+                        document.getElementById('bonusCode').value = code;
+                        document.getElementById('bonus-success').style.display='inline-block';
+                        document.getElementById('bonus-false').style.display='none';
+                    }else{
+                        updateAll();
+                        document.getElementById('promoCode').value = '';
+                        document.getElementById('bonus-success').style.display='inline-block';
+                        document.getElementById('bonus-false').style.display='none';
+                    }
+
+                    
+
+
+                }else{
+                    document.getElementById('promoCode').value = '';
+                    document.getElementById('bonus-false').style.display='inline-block';
+                    document.getElementById('bonus-success').style.display='none';
+                }
+            },
+            error: function(err){
+                console.log(err);
+            }
+          })
+
+
+    }
+
+
+    updateAll();
+
+</script>

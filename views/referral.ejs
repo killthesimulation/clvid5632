@@ -1,0 +1,318 @@
+<div class="left-part">
+
+
+
+    <div class="lp-menu">
+
+        <a href="/dashboard" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-chart-pie"></i></div>
+            <div class="lpmi-text">Dashboard</div>
+        </a>
+
+        <a href="/marketplace/buy" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-arrow-circle-up"></i></div>
+            <div class="lpmi-text">Buy CLV</div>
+        </a>
+
+        <a href="/marketplace/sell" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-arrow-circle-down"></i></div>
+            <div class="lpmi-text">Sell CLV</div>
+        </a>
+
+        <a href="/transactions" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-history"></i></div>
+            <div class="lpmi-text">Transactions</div>
+        </a>
+
+        <a href="/referral" class="lpm-item  lpm-item-selected">
+            <div class="lpmi-icon"><i class="fas fa-user-plus"></i></div>
+            <div class="lpmi-text">Referrals</div>
+        </a>
+
+
+        <a href="/wallet/logout" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-sign-out-alt"></i></div>
+            <div class="lpmi-text">Sign out</div>
+        </a>
+
+    </div>
+
+
+
+</div>
+
+
+<div class="main-part-wrapper">
+<div class="main-part">
+
+    <div class="mp-top-bar">
+
+        <a href="#" class="ptb-item-logo">&nbsp;</a>
+        <div class="ptb-item ptb-item-selected">Referrals</div>
+    </div>
+
+    <div class="mp-spacer"></div>
+
+
+
+
+
+  
+
+
+    <div class="mp-spacer-title">Your Info</div>
+
+
+    <div class="clv-table">
+        <div class="wide-logo"></div>
+        <div class="rf-line-info-top">
+            <div class="rf-line-info-top-item">Citizens inv.</div>
+            <div class="rf-line-info-top-item">Earned CLV</div>
+            <div class="rf-line-info-top-item">US$</div> 
+            <div class="rf-line-info-top-item mobile-no">Referral code</div>
+            <div class="rf-line-info-top-item">Referral link</div>
+        </div>
+
+
+
+
+                       
+
+                              
+                            
+                                    <div class="rf-line-item rf-line-item-orange">
+                                        <%= amount %> <i class="fas fa-user"></i>
+                                    </div>
+                                  
+                                 
+
+                                
+                       
+
+                                    <div class="rf-line-item rf-line-item-orange">
+                                        <%= clvAmount %> CLV
+                                    </div>
+                                   
+
+
+                                    <div class="rf-line-item rf-line-item-green">
+                                        $ <%= usdAmount %> 
+                                    </div>
+                                   
+
+
+                                    <div class="rf-line-item mobile-no">
+                                        <%= code %> 
+                                    </div>
+                                   
+
+
+                                    <div onclick="copyText('<%= link %>')" id="copy-id" class="rf-line-item rf-line-item-last">
+                                       Click to copy
+                                    </div>
+                                   
+                                   
+                                   
+              <script>
+                  function copyText(str){
+                    const el = document.createElement('textarea');
+  el.value = str;
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+  document.getElementById("copy-id").innerHTML = 'Link copied!'
+}
+              </script>
+
+
+
+
+
+
+
+    </div>
+
+    <div class="mp-spacer-title">Referral CLV</div>
+
+    <div class="clv-table">
+        <div class="wide-logo"></div>
+        <div class="ct-first-line">
+            <div class="ct-first-line-item mobile-no">Asset</div>
+            <div class="ct-first-line-item">Amount</div>
+            <div class="ct-first-line-item">Value US$</div>
+            <div class="ct-first-line-item">Earned From (ID)</div>
+            <div class="ct-first-line-item mobile-no">Earn date</div>
+            <div class="ct-first-line-item">Lockup date</div>
+        </div>
+
+
+
+
+        
+
+                        <% if(typeof referralClv != 'undefined') { %>
+                            <% referralClv.forEach(function(item) { %>
+
+                                <div class="ct-line">
+                                    <div class="ct-line-item asset-td"></div>
+                                    <div class="ct-line-item amount-td">
+                                        <%= item.amount %> CLV
+                                    </div>
+                                    <div class="ct-line-item us-td">$
+                                        <%= item.usd %>
+                                    </div>
+                                    <div class="ct-line-item type-td">
+                                        <%= item.source %>
+                                    </div>
+                                    <div class="ct-line-item date1-td mobile-no">
+                                        <%= item.created %>
+                                    </div>
+                                    <div class="ct-line-item date2-td">
+                                        <%= item.lock %>
+                                    </div>
+
+                                </div>
+
+                                <% }); %>
+                                    <% } %>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+    <div class="mp-spacer-title">Referral Citizens</div>
+
+
+
+
+
+    <div class="clv-table">
+        <div class="wide-logo"></div>
+        <div class="ct-first-line">
+            <div class="ct-first-line-item rf2">User ID</div>
+            <div class="ct-first-line-item rf2">Join Date</div>
+
+            <div class="ct-first-line-item rf2">Referral %</div>
+          
+
+        </div>
+
+
+
+
+        
+
+                        <% if(typeof referrals != 'undefined') { %>
+                            <% referrals.forEach(function(item) { %>
+
+                                <div class="ct-line">
+                                    <div class="ct-line-item rf2"> <%= item.codeReferral %></div>
+                                    <div class="ct-line-item rf2"> <%= item.date %></div>
+                                    <div class="ct-line-item rf2">10%</div>
+                                   
+        
+                                  
+
+                                </div>
+
+                                <% }); %>
+                                    <% } %>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <% if(typeof partyReferrals != 'undefined') { %>
+    <div class="mp-spacer-title">Party Referral Citizens</div>
+
+
+
+
+
+    <div class="clv-table">
+        <div class="wide-logo"></div>
+        <div class="ct-first-line">
+            <div class="ct-first-line-item rf2">User ID</div>
+            <div class="ct-first-line-item rf2">Join date</div>
+            <div class="ct-first-line-item rf2">Referral %</div>
+          
+
+        </div>
+
+
+
+
+        
+
+                      
+                            <% partyReferrals.forEach(function(item) { %>
+
+                                <div class="ct-line">
+                                    <div class="ct-line-item rf2"> <%= item.codeReferral %></div>
+                                    <div class="ct-line-item rf2"> <%= item.date %></div>
+                                    <div class="ct-line-item rf2">1% - 10%</div>
+                                   
+        
+                                  
+
+                                </div>
+
+                                <% }); %>
+                                    <% } %>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>

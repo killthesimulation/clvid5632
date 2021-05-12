@@ -1,0 +1,12 @@
+<a href="/admin/dashboard">← Back to Dashboard</a><br><br>
+<h1>Sell Orders List</h1>
+
+<% sellOrders.forEach(function(item) { %>
+
+    <div class="citizen-line">
+        <div class="citizen-line-item"> <%= item.amount %> CLV  </div>
+        <div class="citizen-line-item"> Active: <%= item.active %></div>
+        <div class="citizen-line-item"> Date: <%= item.dateCreated %></div>       
+    </div>
+
+<% }) %>

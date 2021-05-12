@@ -1,0 +1,177 @@
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+
+  <div class="signup-slide">
+      <div class="signup-slide-inner inner">
+         <div class="form-wrapper">
+          <div class="signup-hint-1">
+              Sign up to become a
+          </div>
+           <div class="signup-hint-2">
+              Clover Citizen
+          </div>
+           <div class="signup-hint-3">
+              Fill the form below
+          </div>
+
+
+
+    
+          
+          <div class="signup-form">
+
+            <%- include('partials/messages'); %>
+
+
+            <form id="signUpForm" action="/wallet/create" method="POST">
+                <div class="form-hint-0">Personal information</div>
+                <div class="form-hint">Enter your first name</div>
+
+                <input
+                    class="signup-input"
+                    type="firstName" 
+                    id="firstName"
+                    name="firstName"
+                    autocomplete="off"
+                  
+                    value="<%= typeof firstName != 'undefined' ? firstName : '' %>"
+                />
+            
+                <div class="form-hint">Enter your last name</div>
+
+                <input
+                    class="signup-input"
+                    type="lastName" 
+                    id="lastName"
+                    name="lastName"
+                    autocomplete="off"
+                    
+                    value="<%= typeof lastName != 'undefined' ? lastName : '' %>"
+                />
+
+                <div class="form-hint">Select your gender</div>
+
+                <select id="gender"  class="signup-input"  name="gender">
+                    <option value="" selected disabled hidden>Choose your gender</option>
+                    <option value="male">I'm a man</option>
+                    <option value="female">I'm a woman</option>
+                  </select>
+
+                <div class="form-hint">Enter your email</div>
+            
+                <input
+                    class="signup-input"
+                    type="email" 
+                    id="email"
+                    name="email"
+                    autocomplete="off"
+                 
+                    value="<%= typeof email != 'undefined' ? email : '' %>"
+                />
+
+                <div class="form-hint">Enter your phone number</div>
+            
+                <input
+                    class="signup-input"
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    autocomplete="off"
+                  
+                    value="<%= typeof phone != 'undefined' ? phone : '' %>"
+                />
+
+                
+
+                <div class="form-hint-0 form-hint-0-2">Citizen information</div>
+                <div class="form-hint">Enter your referral code (optional)</div>
+            
+                <input
+                    class="signup-input"
+                    type="referral" 
+                    id="referral"
+                    name="referral"
+                    autocomplete="off"
+                 
+                    value="<%= typeof referral != 'undefined' ? referral : '' %>"
+                />
+
+                <div class="form-hint">Create your password</div>
+            
+                <input
+                class="signup-input"
+                type="password" 
+                id="password"
+                name="password"
+                autocomplete="off"
+               
+                value="<%= typeof password != 'undefined' ? password : '' %>"
+                />
+
+                <div class="form-hint">Confirm your password</div>
+            
+                <input
+                class="signup-input"
+                type="password" 
+                id="password2"
+                name="password2"
+                autocomplete="off"
+                
+                value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+                />
+
+                <div class="g-recaptcha" data-sitekey="6LdjfNkZAAAAABT3TVa--WhAgV9Ek2Cqckho7ZXO"></div>
+            
+                <button class="signup-input signup-submit" type="submit">Become a citizen</button>
+            </form>
+
+            <a href="/wallet/login" class="form-link">Already have an account?<br>Log in right now!</a>
+
+
+
+          </div>
+
+
+
+          </div>
+      </div>
+  </div>
+
+
+  <script>
+    //   document.getElementById('signUpForm').addEventListener('submit', submitForm);
+
+    //   function submitForm(e) {
+    //       e.preventDefault();
+          
+    //       const firstName = document.querySelector('#firstName').value;
+    //       const lastName = document.querySelector('#lastName').value;
+    //       const gender = document.querySelector('#gender').value;
+    //       const email = document.querySelector('#email').value;
+    //       const phone = document.querySelector('#phone').value;
+    //       const referral = document.querySelector('#referral').value;
+    //       const password = document.querySelector('#password').value;
+    //       const password2 = document.querySelector('#password2').value;
+    //       const captcha = document.querySelector('#g-captcha-response').value;
+
+    //       fetch('/wallet/create', {
+    //           method: 'POST',
+    //           headers: {
+    //               'Accept' : 'application/json, text/plain, */*',
+    //               'Content-type' : 'application/x-www-form-urlencoded'
+    //           },
+    //           body: {
+    //             firstName: firstName,
+    //             lastName: lastName,
+    //             gender: gender,
+    //             email: email,
+    //             phone: phone,
+    //             referral: referral,
+    //             password: password,
+    //             password2: password2,
+    //             captcha: captcha
+    //           }
+    //       })
+    //   }
+  </script>

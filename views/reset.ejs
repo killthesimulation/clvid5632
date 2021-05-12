@@ -1,0 +1,61 @@
+<div class="signup-slide">
+    <div class="signup-slide-inner inner">
+        <div class="form-wrapper">
+            <div class="signup-hint-1">
+               Reset password
+            </div>
+         
+
+
+
+            <div class="signup-form">
+
+                <%- include('partials/messages'); %>
+
+
+
+                <form action="/wallet/reset" method="POST">
+                 
+                    <div class="form-hint">Enter new password</div>
+
+                    <input type="hidden" name="requestId" value="<%= requestId %>">
+    
+
+                    <input
+                    class="signup-input"
+                    type="password" 
+                    id="password"
+                    name="password"
+                    autocomplete="off"
+                   
+                    value=""
+                    />
+                    <div class="form-hint">Confirm new password</div>
+                    <input
+                    class="signup-input"
+                    type="password" 
+                    id="password2"
+                    name="password2"
+                    autocomplete="off"
+                   
+                    value=""
+                    />
+                      
+                  
+                    <button class="signup-input signup-submit" type="submit">CHANGE PASSWORD</button>
+
+        
+
+                </form>
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

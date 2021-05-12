@@ -1,0 +1,199 @@
+<div class="left-part">
+
+
+
+    <div class="lp-menu">
+
+        <a href="/dashboard" class="lpm-item lpm-item-selected">
+            <div class="lpmi-icon"><i class="fas fa-chart-pie"></i></div>
+            <div class="lpmi-text">Dashboard</div>
+        </a>
+
+        <a href="/marketplace/buy" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-arrow-circle-up"></i></div>
+            <div class="lpmi-text">Buy CLV</div>
+        </a>
+
+        <a href="/marketplace/sell" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-arrow-circle-down"></i></div>
+            <div class="lpmi-text">Sell CLV</div>
+        </a>
+
+        <a href="/transactions" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-history"></i></div>
+            <div class="lpmi-text">Transactions</div>
+        </a>
+
+        <a href="/referral" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-user-plus"></i></div>
+            <div class="lpmi-text">Referrals</div>
+        </a>
+
+
+        <a href="/wallet/logout" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-sign-out-alt"></i></div>
+            <div class="lpmi-text">Sign out</div>
+        </a>
+
+    </div>
+
+</div>
+
+<div class="main-part-wrapper">
+<div class="main-part">
+
+    <div class="mp-top-bar">
+
+        <a href="#" class="ptb-item-logo">&nbsp;</a>
+        <div class="ptb-item ptb-item-selected">Dashboard</div>
+    </div>
+
+    <div class="mp-spacer"></div>
+
+
+
+    <div class="lp-user">
+        <div class="lp-user-icon">
+            <i class="fas fa-user"></i>
+        </div>
+        <div class="lp-user-name">
+            <%= firstName %>
+                <%= lastName %>
+        </div>
+        <div class="lp-user-email">
+            <%= email %>
+        </div>
+
+<br>
+    <a href="/marketplace/buy" class="new-button">Buy CLV</a>	
+    <a href="/marketplace/sell" class="new-button">Sell CLV</a>	
+    <a href="/marketplace/withdrawal" class="new-button">Withdraw US$</a>	
+<br>
+        <div class="user-balance">
+            <div class="user-balance-top">
+                <div class="user-balance-top-item">CLV Balance</div>
+                <div class="user-balance-top-item">US$ Equivalent</div>
+            </div>
+            <div class="user-balance-item user-balance-item-orange">
+                <%= clvTotal %> CLV
+            </div>
+            <div class="user-balance-item user-balance-item-green">
+                $
+                <%= usdTotal %>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="mp-spacer"></div>
+
+    <div class="mp-spacer-title">Your portfolio</div>
+
+    <div class="mp-line-info">
+        <div class="wide-logo"></div>
+        <div class="mp-line-info-top">
+            <div class="mp-line-info-top-item">US$ Wallet</div>
+            <div class="mp-line-info-top-item">Premium CLV</div>
+            <div class="mp-line-info-top-item">Free CLV</div>
+            <div class="mp-line-info-top-item">Referral Free CLV</div>
+	 <div class="mp-line-info-top-item">USD Bonus</div>
+        </div>
+
+        <div class="mpli-item">
+            <div class="mplii-value mplii-value-orange">
+                $<%= usdWallet %>
+            </div>
+        </div>
+
+        <div class="mpli-item">
+            <div class="mplii-value">
+                <%= premiumClvAmount %> CLV</div>
+        </div>
+
+        <div class="mpli-item">
+
+            <div class="mplii-value">
+                <%= freeClvAmount %> CLV</div>
+        </div>
+
+<div class="mpli-item">
+
+            <div class="mplii-value">
+                <%= referralClvAmount %> CLV</div>
+        </div>
+
+        <div class="mpli-item mpli-item-last">
+
+            <div class="mplii-value">$
+                <%= usdBonus %>
+            </div>
+        </div>
+
+
+
+        <div class="wide-arrow"><i class="fas fa-caret-down"></i></div>
+    </div>
+
+
+    <div class="mp-spacer-title">Wallet details</div>
+
+
+    <div class="clv-table">
+        <div class="wide-logo"></div>
+        <div class="ct-first-line">
+            <div class="ct-first-line-item ct-first-line-item-asset">Asset</div>
+            <div class="ct-first-line-item">Amount</div>
+            <div class="ct-first-line-item">Value US$</div>
+            <div class="ct-first-line-item">Type</div>
+            <div class="ct-first-line-item ct-first-line-item-pdate">Purchase date</div>
+            <div class="ct-first-line-item">Lockup date</div>
+        </div>
+
+
+
+
+        <% if(typeof allClv != 'undefined') { %>
+            <% allClv.forEach(function(item) { %>
+
+                <div class="ct-line">
+                    <div class="ct-line-item asset-td"></div>
+                    <div class="ct-line-item amount-td">
+                        <%= item.amount %> CLV
+                    </div>
+                    <div class="ct-line-item us-td">$
+                        <%= item.usd %>
+                    </div>
+                    <div class="ct-line-item type-td">
+                        <%= item.type %>
+                    </div>
+                    <div class="ct-line-item date1-td">
+                        <%= item.created %>
+                    </div>
+                    <div class="ct-line-item date2-td">
+                        <%= item.lock %>
+                    </div>
+
+                </div>
+
+                <% }); %>
+                    <% } %>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+</div>
+</div>

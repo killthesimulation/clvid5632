@@ -1,0 +1,414 @@
+<div class="left-part">
+
+
+
+    <div class="lp-menu">
+
+        <a href="/dashboard" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-chart-pie"></i></div>
+            <div class="lpmi-text">Dashboard</div>
+        </a>
+
+        <a href="/marketplace/buy" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-arrow-circle-up"></i></div>
+            <div class="lpmi-text">Buy CLV</div>
+        </a>
+
+        <a href="/marketplace/sell" class="lpm-item lpm-item-selected">
+            <div class="lpmi-icon"><i class="fas fa-arrow-circle-down"></i></div>
+            <div class="lpmi-text">Sell CLV</div>
+        </a>
+
+        <a href="/transactions" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-history"></i></div>
+            <div class="lpmi-text">Transactions</div>
+        </a>
+
+        <a href="/referral" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-user-plus"></i></div>
+            <div class="lpmi-text">Referrals</div>
+        </a>
+
+
+        <a href="/wallet/logout" class="lpm-item">
+            <div class="lpmi-icon"><i class="fas fa-sign-out-alt"></i></div>
+            <div class="lpmi-text">Sign out</div>
+        </a>
+
+    </div>
+
+</div>
+
+<div class="main-part-wrapper">
+    <div class="main-part">
+
+
+        <div class="mp-top-bar">
+
+            <a href="#" class="ptb-item-logo">&nbsp;</a>
+            <div class="ptb-item ptb-item-selected">Clover Marketplace</div>
+        </div>
+    
+        <div class="mp-spacer"></div>
+
+        <div class="marketplace-header">
+            <div class="marketplace-header-text">Sell CLV</div>
+        </div>
+
+
+        <div class="marketplace-sell-subheader">Available CLV to Sell</div>
+
+        <div class="sell-clv-wrapper">
+         
+        
+
+
+  
+            <% if(typeof clv != 'undefined') { %>
+                <% clv.forEach(function(item) { %>
+    
+                    <div class="sell-clv-item">
+
+                        <div class="sell-clv-item-line">
+        
+                            <div class="sell-clv-item-line-wrapper">
+        
+                                
+                                <div class="sell-clv-item-hint">
+                                    Purchase Date
+                                </div>
+                                <br>
+                                <div class="sell-clv-item-value">
+                                    <%= item.date %>
+                                </div>
+        
+                            </div>
+        
+                        </div>
+        
+        
+        
+        
+                        <div class="sell-clv-item-line">
+        
+                            <div class="sell-clv-item-line-wrapper">
+        
+                                
+                                <div class="sell-clv-item-hint">
+                                    Total Amount
+                                </div>
+                                <br>
+                                <div class="sell-clv-item-value">
+                                    <span class="sell-white"> <%= item.amount %></span> CLV
+                                </div>
+        
+                            </div>
+        
+        
+        
+                            <div class="sell-clv-item-line-wrapper">
+        
+                                
+                                <div class="sell-clv-item-hint">
+                                    Value US$
+                                </div>
+                                <br>
+                                <div class="sell-clv-item-value">
+                                    <span class="sell-green">$<%= item.usAmount.toFixed(2) %></span>
+                                </div>
+        
+                            </div>
+        
+        
+                        </div>
+        
+        
+        
+                      
+        
+                            <div class="sell-allowed-line">
+                                <div class="sell-allowed-line-hint">
+                                    Available to Sell in this month (<%= restriction %>%)
+                                </div>
+        
+                                <div class="sell-clv-item-line-wrapper">
+        
+                                
+                                    <div class="sell-clv-item-hint">
+                                        Amount
+                                    </div>
+                                    <br>
+                                    <div class="sell-clv-item-value">
+                                        <span class="sell-black"><%= item.availableToSell %> CLV</span>
+                                    </div>
+            
+                                </div>
+            
+            
+            
+                                <div class="sell-clv-item-line-wrapper">
+            
+                                    
+                                    <div class="sell-clv-item-hint">
+                                        Value US$
+                                    </div>
+                                    <br>
+                                    <div class="sell-clv-item-value">
+                                        <span class="sell-black">$<%= item.availableToSellUs.toFixed(2) %></span>
+                                    </div>
+            
+                                </div>
+
+
+                                <form action="/marketplace/createSellOrder" method="POST">
+
+
+                                    <input type="hidden" name="clvId" value="<%= item.id %>">
+                                    <input type="hidden" name="clvAmount" value="<%= item.availableToSell %>">
+                                    
+                    
+                                    <button type="submit" class="sell-button">Sell</button>
+                    
+                                </form>
+
+
+        
+                               
+        
+                            </div>
+        
+                           
+        
+        
+        
+        
+                    
+        
+        
+        
+                       
+                       
+        
+        
+                        
+        
+        
+                    </div>
+    
+                <% }); %>
+            <% } %>
+
+
+
+
+            
+            <% if(typeof freeClv != 'undefined') { %>
+                <% freeClv.forEach(function(item) { %>
+    
+                    <div class="sell-clv-item">
+
+                        <div class="sell-clv-item-line">
+        
+                            <div class="sell-clv-item-line-wrapper">
+        
+                                
+                                <div class="sell-clv-item-hint">
+                                    Purchase Date
+                                </div>
+                                <br>
+                                <div class="sell-clv-item-value">
+                                    <%= item.date %>
+                                </div>
+        
+                            </div>
+        
+                        </div>
+        
+        
+        
+        
+                        <div class="sell-clv-item-line">
+        
+                            <div class="sell-clv-item-line-wrapper">
+        
+                                
+                                <div class="sell-clv-item-hint">
+                                    Total Amount
+                                </div>
+                                <br>
+                                <div class="sell-clv-item-value">
+                                    <span class="sell-white"> <%= item.amount %></span> CLV
+                                </div>
+        
+                            </div>
+        
+        
+        
+                            <div class="sell-clv-item-line-wrapper">
+        
+                                
+                                <div class="sell-clv-item-hint">
+                                    Value US$
+                                </div>
+                                <br>
+                                <div class="sell-clv-item-value">
+                                    <span class="sell-green">$<%= item.usAmount.toFixed(2) %></span>
+                                </div>
+        
+                            </div>
+        
+        
+                        </div>
+        
+        
+        
+                      
+        
+                            <div class="sell-allowed-line">
+                                <div class="sell-allowed-line-hint">
+                                    Available to Sell in this month (<%= restriction %>%)
+                                </div>
+        
+                                <div class="sell-clv-item-line-wrapper">
+        
+                                
+                                    <div class="sell-clv-item-hint">
+                                        Amount
+                                    </div>
+                                    <br>
+                                    <div class="sell-clv-item-value">
+                                        <span class="sell-black"><%= item.availableToSell %> CLV</span>
+                                    </div>
+            
+                                </div>
+            
+            
+            
+                                <div class="sell-clv-item-line-wrapper">
+            
+                                    
+                                    <div class="sell-clv-item-hint">
+                                        Value US$
+                                    </div>
+                                    <br>
+                                    <div class="sell-clv-item-value">
+                                        <span class="sell-black">$<%= item.availableToSellUs.toFixed(2) %></span>
+                                    </div>
+            
+                                </div>
+
+
+                                <form action="/marketplace/createSellOrder" method="POST">
+
+
+                                    <input type="hidden" name="clvId" value="<%= item.id %>">
+                                    <input type="hidden" name="clvAmount" value="<%= item.availableToSell %>">
+                                    
+                    
+                                    <button type="submit" class="sell-button">Sell</button>
+                    
+                                </form>
+
+
+        
+                               
+        
+                            </div>
+        
+                           
+        
+        
+        
+        
+                    
+        
+        
+        
+                       
+                       
+        
+        
+                        
+        
+        
+                    </div>
+    
+                <% }); %>
+            <% } %>
+              
+        
+        </div>
+
+       
+
+        <div class="sell-total-info">
+
+            <div class="sell-total-info-hint">Total CLV Available to Sell</div>
+            <div class="sell-total-info-value"><%= totalToSell %> <span class="sell-orange">CLV</span></div>
+
+        </div>
+
+        <div class="sell-total-spacer"></div>
+
+
+        <div class="marketplace-header marketplace-header-2">
+            <div class="marketplace-header-text">Your Sell Orders</div>
+        </div>
+
+        <div class="sellOrdersTable">
+            <div class="wide-logo"></div> 
+            <div class="sellOrdersTableTop">
+                <div class="sellOrdersTableTopItem">
+                    CLV Amount
+                </div>
+                <div class="sellOrdersTableTopItem">
+                    US$ Value
+                </div>
+
+                <div class="sellOrdersTableTopItem">
+                    Creation Date
+                </div>
+
+                <div class="sellOrdersTableTopItem">
+                    Queue №
+                </div>
+                <div class="sellOrdersTableTopItem">
+                    Action
+                </div>
+            </div>
+            <% if(typeof sellOrders != 'undefined') { %>
+                <% sellOrders.forEach(function(item) { %>
+
+                <div class="sellOrdersTableLine">
+                    <div class="sellOrdersTableLineItem">
+                        <%= item.amount %>
+                    </div>
+                    <div class="sellOrdersTableLineItem">
+                        <%= item.usAmount.toFixed(2) %>
+                    </div>
+                    <div class="sellOrdersTableLineItem">
+                        <%= item.date %>
+                    </div>
+                    <div class="sellOrdersTableLineItem">
+                        <%= item.number %>
+                    </div>
+                    <div class="sellOrdersTableLineItem">
+                        Coming soon...
+                    </div>
+                </div>
+
+            <% }); %>
+            <% } %>
+              
+        </div>
+
+       
+
+        
+
+    </div>
+    </div>
+</div>
+
+
+

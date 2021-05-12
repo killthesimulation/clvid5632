@@ -1,0 +1,31 @@
+<a href="/admin/dashboard">← Back to Dashboard</a><br><br>
+<h1>Transactions List</h1>
+
+
+
+<div class="admin-line">
+    <div class="admin-hint admin-hint-ts">User ID</div>
+    <div class="admin-hint admin-hint-ts">First Name</div>
+    <div class="admin-hint admin-hint-ts">Last Name</div>
+    <div class="admin-hint admin-hint-ts">Operation</div>
+    <div class="admin-hint admin-hint-ts">Email</div>
+    <div class="admin-hint admin-hint-ts">Date</div>
+    <div class="admin-hint admin-hint-ts">CLV Amount</div>
+    <div class="admin-hint admin-hint-ts">US$ Total</div>
+    <div class="admin-hint admin-hint-ts">Price $</div>
+    <div class="admin-hint admin-hint-ts">Type</div>
+</div>
+
+<% transactions.forEach(function(item) { %>
+    <div class="admin-line">
+        <div class="admin-hint admin-hint-ts"> <%= item.userId %></div>
+        <div class="admin-hint admin-hint-ts"> <%= item.firstName %></div>
+        <div class="admin-hint admin-hint-ts"> <%= item.lastName %></div>
+        <div class="admin-hint admin-hint-ts"> - </div>
+        <div class="admin-hint admin-hint-ts"> <%= item.email %></div>
+        <div class="admin-hint admin-hint-ts"> <%= item.date.getDate() %>.<%= item.date.getMonth() + 1 %>.<%= item.date.getFullYear()%></div>
+        <div class="admin-hint admin-hint-ts"> <%= item.clv %> CLV</div>
+        <div class="admin-hint admin-hint-ts">$ <%= item.usd %></div>
+        <div class="admin-hint admin-hint-ts"><%= item.price %></div>
+        <div class="admin-hint admin-hint-ts"> <%= item.info %></div>
+    </div>
