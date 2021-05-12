@@ -19,7 +19,7 @@ const phoneCodes = require('../tools/phoneCodes.json');
 
 
 exports.addContactToCrm = function (wallet) {
-    return new Promise((resolve, reject) => {
+
 
         var options = {
             'method': 'POST',
@@ -32,12 +32,12 @@ exports.addContactToCrm = function (wallet) {
           };
           request(options, function (error, response) {
            if(error){
-               reject(error);
+            console.log(error);
            }
-           resolve(response);
+           console.log(response);
           });
         
-    })
+    
 }
 
 
