@@ -28,15 +28,16 @@ exports.addContactToCrm = function (wallet) {
             "email" : wallet.email,
             "phone " : wallet.phone,
         };
-        Freshdesk.post('/api/v2/contacts', myNewContact, function(err, res, body){
+        Freshdesk.post('/api/v2/contacts', myNewContact, function(err, result, body){
             if(err){
                 console.log(err)
                 resolve('err')
             };
-            if(res.statusCode === 200){
-                console.log(res);
+            if(result.statusCode === 200){
+                console.log(result);
                 resolve('success')
             };
+            console.log(result)
         });
         
     })
