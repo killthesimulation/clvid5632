@@ -29,7 +29,8 @@ exports.addContactToCrm = function (wallet) {
             },
             formData: {
               'name': wallet.firstName + ' ' + wallet.lastName,
-              'email': wallet.email
+              'email': wallet.email,
+              'phone': wallet.phone
             }
           };
           request(options, function (error, response) {
