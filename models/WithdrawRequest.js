@@ -31,6 +31,14 @@ const WithdrawRequestSchema = new mongoose.Schema({
     info: {
         type: String,
         required: true
+    },
+    status:{
+        type: String,
+        default: 'opened'
+    },
+    closeDate:{
+        type: String,
+        default: '-'
     }
 })
 

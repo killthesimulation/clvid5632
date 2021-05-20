@@ -625,6 +625,34 @@ router.post('/updateUsdBonus', ensureAuthenticated, (req, res) => {
 
 })
 
+
+router.post('/closeSellOrder', ensureAuthenticated, (req, res) => {
+    const id = req.body.id;
+    console.log(id);
+    sellOrderController.closeSellOrder(id)
+        .then(result => {
+            res.redirect(req.get('referer')); 
+        })
+})
+
+router.post('/closeWithdrawRequest', ensureAuthenticated, (req, res) => {
+
+
+    if(req.user.id === process.env.ADMIN1 || req.user.id === process.env.ADMIN2 || req.user.id === process.env.ADMIN3) {
+
+            const id = req.query.id;
+            withdrawRequestController.closeWithdrawRequest(id);
+            res.redirect(req.get('referer'));
+
+        }else{
+            res.redirect('https://clovercountry.org/');
+        }
+
+
+   
+
+})
+
 router.post('/addCashback', ensureAuthenticated, (req, res) => {
     if(req.user.id === process.env.ADMIN1 || req.user.id === process.env.ADMIN2 || req.user.id === process.env.ADMIN3) {
 
@@ -780,6 +808,7 @@ router.post('/changeReputationIndex', ensureAuthenticated, (req, res) => {
 
         sellOrderController.getAllSellOrders()
             .then(sellOrders => {
+                console.log(sellOrders)
                 res.render('adminNewSellOrders', {
                     layout: 'adminNewLayout',
                     sellOrders
@@ -1214,7 +1243,9 @@ router.get('/exportCitizens', ensureAuthenticated, (req, res) => {
                     'gender',
                     'email',
                     'phone',
-                    'join date'
+                    'join date',
+                    'restrictionLockPeriod',
+                    'restrictionLockPeriodFree'
                 ]
 
 
@@ -1298,6 +1329,51 @@ router.get('/exportTransactions', ensureAuthenticated, (req, res) => {
 
 })
 
+
+router.get('/exportClv', ensureAuthenticated, (req, res) => {
+
+
+    if(req.user.id === process.env.ADMIN1 || req.user.id === process.env.ADMIN2 || req.user.id === process.env.ADMIN3) {
+
+
+        const workSheetColumnNames = [
+            'clv Id',
+            'owner Id',
+            'type',
+            'sub type',
+            'initial amount',
+            'current amount',
+            'date created'
+        ]
+
+
+
+
+        
+        const datetime = new Date();
+        const shortDate = 'clvs_' + datetime.getDate() + '.' + (datetime.getMonth() + 1) + '.' + datetime.getFullYear() + '.xlsx';
+
+        const workSheetName = 'Clvs';
+        const filePath = `./tools/outputFiles/${shortDate}`;
+
+        xlsxExport.exportClvsToExcel(workSheetColumnNames, workSheetName, filePath )
+       
+
+        sendEmail.sendEmailExcel(shortDate)
+            .then(result => {
+                console.log(result);
+                res.redirect('/admin/transactions')
+            })
+
+
+    }else{
+        res.redirect('https://clovercountry.org/');
+    }
+
+
+})
+
+
 router.get('/exportSellOrders', ensureAuthenticated, (req, res) => {
 
 
@@ -1361,7 +1437,9 @@ router.get('/exportWithdrawalRequests', ensureAuthenticated, (req, res) => {
                     'phone',
                     'info',
                     'date',
-                    'usdAmount'
+                    'usdAmount',
+                    'status',
+                    'close date'
                 ]
 
 

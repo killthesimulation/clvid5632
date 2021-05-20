@@ -10,6 +10,10 @@
     <div class="admin-new-withdrawals-list-line">
 
         <div class="admin-new-withdrawals-list-line-item">
+            Status
+        </div>
+
+        <div class="admin-new-withdrawals-list-line-item">
             Amount US$
         </div>
 
@@ -39,6 +43,14 @@
             Message
         </div>
 
+        <div class="admin-new-withdrawals-list-line-item">
+            Close Date
+        </div>
+
+
+        <div class="admin-new-withdrawals-list-line-item">
+            Close
+        </div>
     
 
       
@@ -49,6 +61,10 @@
 
     <% requests.forEach(function(item) { %>
     <div class="admin-new-withdrawals-list-line">
+
+        <div class="admin-new-withdrawals-list-line-item">
+            <%= item.status %>
+        </div>
 
         <div class="admin-new-withdrawals-list-line-item">
             $<%= item.usdAmount %>
@@ -80,6 +96,17 @@
         <div class="admin-new-withdrawals-list-line-item">
             <%= item.info %>
         </div>
+
+        <div class="admin-new-withdrawals-list-line-item">
+            <%= item.closeDate %>
+        </div>
+
+        <div class="admin-new-withdrawals-list-line-item">
+            <form action="/admin/closeWithdrawRequest/?id=<%= item._id %>" method="POST">
+              <input type="submit"  class="admin-input-submit" value="Close">
+            </form>
+        </div>
+        
 
     </div>
 

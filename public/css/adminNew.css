@@ -24,7 +24,7 @@ body {
 
 .admin-wrapper {
     width: 95%;
-    max-width: 1400px;
+    padding: 10px;
 }
 
 .admin-header{
@@ -377,11 +377,11 @@ body {
 }
 
 .admin-new-sell-orders-list-line-item{
-    width: 33%;
+    width: 25%;
 }
 
 .admin-new-withdrawals-list-line-item{
-    width: 14.2%;
+    width: 10%;
 }
 
 .admin-profile-page-items-wrapper-2{

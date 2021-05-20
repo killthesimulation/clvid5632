@@ -22,6 +22,9 @@
             Date (dd/mm/yyyy)
         </div>
 
+        <div class="admin-new-sell-orders-list-line-item">
+            Date Closed (dd/mm/yyyy)
+        </div>
 
       
     </div>
@@ -40,6 +43,10 @@
 
         <div class="admin-new-sell-orders-list-line-item">
             <%= item.dateCreated.getDate() %>.<%= item.dateCreated.getMonth() + 1 %>.<%= item.dateCreated.getFullYear()%>
+        </div>
+
+        <div class="admin-new-sell-orders-list-line-item">
+            <%= item.closeDate %>
         </div>
 
     

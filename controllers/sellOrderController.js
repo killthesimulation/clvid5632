@@ -71,7 +71,8 @@ exports.getSellOrders = function(userId) {
                                         amount: item.amount,
                                         date: `${item.dateCreated.getDate()} ${monthNames[item.dateCreated.getMonth()]} ${item.dateCreated.getFullYear()}`,
                                         usAmount: item.amount * price,
-                                        number: queueNumberArray.map(function (item) { return item.id; }).indexOf(item._id.toString()) + 1
+                                        number: queueNumberArray.map(function (item) { return item.id; }).indexOf(item._id.toString()) + 1,
+                                        id: item._id
                                     }
         
                                     sellOrdersArray.push(sellOrderItem);
@@ -334,7 +335,9 @@ exports.closeSellOrder = function(sellOrderId){
         SellOrder.findOne({_id: sellOrderId})
             .then(sellOrder => {
                 sellOrder.active = false;
-
+                var currentDate = new Date(); //use your date here
+                currentDate.toLocaleDateString('en-US'); // "en-US" gives date in US Format - mm/dd/yy
+                sellOrder.closeDate = currentDate;
                 sellOrder.save()
                     .then(result => {
                         resolve(result);

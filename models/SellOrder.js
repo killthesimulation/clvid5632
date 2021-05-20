@@ -23,6 +23,10 @@ const SellOrderSchema = new mongoose.Schema({
     active: {
         type: Boolean,
         default: true
+    },
+    closeDate :{
+        type: String,
+        default: '-'
     }
 })
 

@@ -37,3 +37,20 @@ exports.getAllWithdrawRequests = function() {
             })
     })
 }
+
+
+exports.closeWithdrawRequest = function (id) {
+    return new Promise((resolve, reject) => {
+        WithdrawRequest.findOne({_id: id})
+            .then(item =>{
+                var currentDate = new Date(); //use your date here
+                currentDate.toLocaleDateString('en-US'); 
+                item.status = 'closed'
+                item.closeDate = currentDate
+                item.save()
+                    .then(newItem => {
+                        resolve('success');
+                    })
+            })
+    })
+}

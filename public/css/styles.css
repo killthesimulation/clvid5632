@@ -2302,3 +2302,10 @@ max-width:700px;
     margin-bottom: 10px;
     color: rgba(0,0,0,0.7);
 }
+
+
+.admin-input-submit-clear{
+    border: none;
+    background: none;
+    color: white;
+}

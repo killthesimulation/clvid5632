@@ -818,6 +818,19 @@ exports.getClvAmount = function () {
   });
 };
 
+
+exports.getAllCloversForExcell = function () {
+  return new Promise((resolve, reject) => {
+    Clover.find({})
+      .then((clvs) => {
+        resolve(clvs);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+}
+
 exports.getPremiumClvAmount = function () {
   return new Promise((resolve, reject) => {
     let amount = 0;

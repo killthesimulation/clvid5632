@@ -27,12 +27,16 @@ exports.addContactToCrm = function (wallet) {
               'Authorization': 'Basic VFBUdmZlUTBGQW41SHFMamp4NzpY',
               'Cookie': '_x_m=x_c; _x_w=5_2'
             },
-            formData: {
+            'formData': {
               'name': wallet.firstName + ' ' + wallet.lastName,
               'email': wallet.email,
-              'phone': wallet.phone
+              'phone': wallet.phone,
+              'unique_external_id':`'${wallet._id}'`,
+              'description': wallet.gender,
             }
           };
+
+          console.log(options);
           request(options, function (error, response) {
             if (error) {console.log(error)};
             console.log(response.body);
@@ -55,7 +59,7 @@ exports.createWallet = function(req, res) {
 
     const ip = req.header('x-forwarded-for');
 
-    //const ip = '46.185.13.84';
+    // const ip = '46.185.13.34';
 
 
     const referral = req.body['referral'].toUpperCase();
@@ -439,7 +443,7 @@ exports.getUserGeoInfo = function (req) {
     const ip = req.header('x-forwarded-for');
 
         
-    //const ip = '46.185.13.84';
+    //const ip = '46.185.13.34';
 
   
 

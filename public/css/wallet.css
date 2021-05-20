@@ -548,3 +548,10 @@ body {
     font-family: "PoppinsRegular";
     color: #fcb44b;
 }
+
+
+.admin-input-submit-clear{
+    border: none;
+    background: none;
+    color: white;
+}
