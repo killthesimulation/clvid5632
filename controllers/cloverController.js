@@ -696,11 +696,14 @@ exports.deleteClv = function (id) {
       .then(result => {
         SellOrder.findOne({clvId: id})
           .then(newSellOrder => {
-            newSellOrder.active = false;
+            if(newSellOrder){
+              newSellOrder.active = false;
             newSellOrder.save()
               .then(resultDebug => {
                 resolve(result);
               })
+            }
+            resolve(result);
           })
         
       })
