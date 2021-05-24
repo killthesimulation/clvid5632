@@ -488,15 +488,28 @@ router.get('/citizen', ensureAuthenticated, (req, res) => {
                                         .then(index => {
                                             bonusCapController.adminFindBonusCap(wallet.codeReferral)
                                             .then(bonusCap => {
-                                                res.render('adminNewCitizenPage', {
-                                                    layout: 'adminNewLayout',
-                                                    wallet,
-                                                    bonusCap,
-                                                    index,
-                                                    premiumClv: premiumClv.amount,
-                                                    referralClv: referralClv.amount,
-                                                    freeClv: freeClv.amount
-                                                })
+
+
+                                                cloverController.getAllClvForDashboard(id)
+                                                    .then(citizenClvs => {
+
+                                                    
+
+                                                        res.render('adminNewCitizenPage', {
+                                                            layout: 'adminNewLayout',
+                                                            citizenClvs,
+                                                            wallet,
+                                                            bonusCap,
+                                                            index,
+                                                            premiumClv: premiumClv.amount,
+                                                            referralClv: referralClv.amount,
+                                                            freeClv: freeClv.amount
+                                                        })
+
+                                                    })
+
+                                                
+                                            
                                             })
                                             .catch(err => {
                                                 console.log(err)
@@ -534,6 +547,29 @@ router.get('/citizen', ensureAuthenticated, (req, res) => {
     }else{
         res.redirect('https://clovercountry.org/');
     }
+
+
+})
+
+router.post('/deleteClv', ensureAuthenticated, (req, res) => {
+    
+
+
+    if(req.user.id === process.env.ADMIN1 || req.user.id === process.env.ADMIN2 || req.user.id === process.env.ADMIN3) {
+
+
+        const id = req.body.id;
+       
+        cloverController.deleteClv(id)
+            .then(result => {
+                res.redirect(req.get('referer'));
+            })
+    
+        
+    
+        }else{
+            res.redirect('https://clovercountry.org/');
+        }
 
 
 })

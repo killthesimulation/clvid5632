@@ -274,3 +274,56 @@
         <br><br><br>
 
     </div>
+
+
+    <div class="admin-citizen-clv-wrapper">
+
+        <div class="admin-citizen-clv-line">
+            <div class="admin-citizen-clv-line-item">
+                Amount CLV
+            </div>
+            <div class="admin-citizen-clv-line-item">
+                US$  
+            </div>
+            <div class="admin-citizen-clv-line-item">
+                Type
+            </div>
+            <div class="admin-citizen-clv-line-item">
+                Date created 
+            </div>
+            <div class="admin-citizen-clv-line-item">
+                Lock Up Date
+            </div>
+        </div>
+
+        <% citizenClvs.clv.forEach(function(item) { %>
+
+        <div class="admin-citizen-clv-line">
+            <div class="admin-citizen-clv-line-item">
+
+
+                <form action="/admin/deleteClv" method="POST">
+                    <input name="id" type="hidden"  value="<%= item.id %>">
+            
+                    <button type="submit" class="admin-clv-delete-button" value="Change">
+                        <i class="fas fa-times-circle"></i>
+                    </button>
+                    </form>
+
+                <%= item.amount %> CLV
+            </div>
+            <div class="admin-citizen-clv-line-item">
+                $<%= item.usd %> 
+            </div>
+            <div class="admin-citizen-clv-line-item">
+                <%= item.type %> 
+            </div>
+            <div class="admin-citizen-clv-line-item">
+                <%= item.created %> 
+            </div>
+            <div class="admin-citizen-clv-line-item">
+                <%= item.lock %> 
+            </div>
+        </div>
+        <% }); %>
+    </div>

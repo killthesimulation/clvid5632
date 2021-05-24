@@ -10,6 +10,7 @@ const sellOrderController = require("../controllers/sellOrderController");
 
 
 const functions = require('../tools/functions');
+const SellOrder = require("../models/SellOrder");
 
 
 
@@ -687,6 +688,25 @@ exports.getFreeClv = function (id) {
   });
 };
 
+
+exports.deleteClv = function (id) {
+  return new Promise((resolve, reject) => {
+    console.log(id);
+    Clover.deleteOne({_id: id})
+      .then(result => {
+        SellOrder.findOne({clvId: id})
+          .then(newSellOrder => {
+            newSellOrder.active = false;
+            newSellOrder.save()
+              .then(resultDebug => {
+                resolve(result);
+              })
+          })
+        
+      })
+  })
+}
+
 exports.getAllClvForDashboard = function (id) {
   return new Promise((resolve, reject) => {
 
@@ -746,6 +766,7 @@ exports.getAllClvForDashboard = function (id) {
                     }
         
                     const clvItem = {
+                      id: item._id + '',
                       amount: item.amount,
                       usd: (Number(item.amount) * Number(price)).toFixed(4),
                       type: item.type,

@@ -387,3 +387,27 @@ body {
 .admin-profile-page-items-wrapper-2{
     margin-top: 0;
 }
+
+.admin-citizen-clv-line{
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    width: 100%;
+}
+
+.admin-citizen-clv-line-item{
+    width: 19%;
+}
+
+
+.admin-citizen-clv-line-item i{
+    cursor: pointer;
+    padding-right: 10px;
+} 
+
+.admin-clv-delete-button{
+    margin-bottom: 5px;
+    font-size: 22px;
+    text-align: center;
+    border: none;
+    background: none;
+}
