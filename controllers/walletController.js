@@ -551,7 +551,7 @@ exports.getPersonalLockDownPeriod = function(id) {
             .then(result => {
                 if(result.restrictionLockPeriod >= 0){
                     resolve(result.restrictionLockPeriod);
-                }else if(result.restrictionLockPeriod == ''){
+                }else if(result.restrictionLockPeriod == '' || result.restrictionLockPeriod == null){
                     configController.configGetDefaultPremiumLockdown()
                         .then(lockdown => {
                             resolve(lockdown);
@@ -610,7 +610,7 @@ exports.getPersonalLockDownPeriodFree = function(id) {
             .then(result => {
                 if(result.restrictionLockPeriodFree >= 0){
                     resolve(result.restrictionLockPeriodFree);
-                }else if(result.restrictionLockPeriodFree == ''){
+                }else if(result.restrictionLockPeriod == '' || result.restrictionLockPeriod == null){
                     configController.configGetDefaultFreeLockdown()
                         .then(lockdown => {
                             resolve(lockdown);
