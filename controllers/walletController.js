@@ -24,14 +24,14 @@ exports.addContactToCrm = function (wallet) {
             'method': 'POST',
             'url': 'https://newaccount1620692280912.freshdesk.com/api/v2/contacts',
             'headers': {
-              'Authorization': 'Basic 5vtvWtCC2wXUnYSqJ1h',
-              'Cookie': '_x_m=x_c; _x_w=5_2'
+              'Authorization': 'Basic QlJPZG5vdnBtRzhoUHE4ZGNsbTpY',
+              'Cookie': '_x_w=1'
             },
             'formData': {
               'name': wallet.firstName + ' ' + wallet.lastName,
               'email': wallet.email,
               'phone': wallet.phone,
-              'unique_external_id':`'${wallet._id}'`,
+              'job_title':`${wallet.codeReferral}`,
               'description': wallet.gender,
             }
           };
@@ -59,7 +59,7 @@ exports.createWallet = function(req, res) {
 
     const ip = req.header('x-forwarded-for');
 
-    // const ip = '46.185.13.34';
+    //const ip = '46.185.13.14';
 
 
     const referral = req.body['referral'].toUpperCase();
@@ -461,7 +461,7 @@ exports.getUserGeoInfo = function (req) {
     const ip = req.header('x-forwarded-for');
 
         
-    //const ip = '46.185.13.34';
+    //const ip = '46.185.13.14';
 
   
 
