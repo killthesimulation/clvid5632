@@ -726,6 +726,8 @@ exports.getAllClvForDashboard = function (id) {
         walletController.getPersonalLockDownPeriodFree(id)
           .then(freeLockDown => {
 
+            console.log(premiumLockDown, freeLockDown)
+
             configController.configGetPrice().then((price) => {
               const monthNames = [
                 "January",

@@ -49,6 +49,13 @@
             <%= item.closeDate %>
         </div>
 
+
+        <div class="admin-new-sell-orders-list-line-item">
+        <form action="/admin/closeSellOrder" method="POST">
+            <input type="hidden" value="<%= item._id %>" name="id">
+            <input type="submit"  class="admin-input-submit-clear" value="Close">
+        </form>
+    </div>
     
 
 

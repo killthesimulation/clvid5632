@@ -708,6 +708,27 @@ router.post('/addCashback', ensureAuthenticated, (req, res) => {
         }
 })
 
+router.post('/addUsdToWallet', ensureAuthenticated, (req, res) => {
+    if(req.user.id === process.env.ADMIN1 || req.user.id === process.env.ADMIN2 || req.user.id === process.env.ADMIN3) {
+
+
+        const id = req.query.id;
+        const { amount } = req.body;
+    
+        walletController.addUsdToWallet(id, amount)
+            .then(wallet => {
+                res.redirect(req.get('referer'));
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }else{
+            res.redirect('https://clovercountry.org/');
+        }
+})
+
+
+
 router.get('/transactionsOld', ensureAuthenticated, (req, res) => {
 
 
@@ -1269,10 +1290,11 @@ router.get('/exportCitizens', ensureAuthenticated, (req, res) => {
     if(req.user.id === process.env.ADMIN1 || req.user.id === process.env.ADMIN2 || req.user.id === process.env.ADMIN3) {
 
 
-        walletController.getAllWalletsMaster('date')
+        walletController.getAllWallets()
             .then(citizens => {
 
                 const workSheetColumnNames = [
+                    'systemID',
                     'id',
                     'first name',
                     'last name',
@@ -1281,7 +1303,8 @@ router.get('/exportCitizens', ensureAuthenticated, (req, res) => {
                     'phone',
                     'join date',
                     'restrictionLockPeriod',
-                    'restrictionLockPeriodFree'
+                    'restrictionLockPeriodFree',
+                    'restrictionPercentSellPerMounth'
                 ]
 
 
@@ -1290,6 +1313,7 @@ router.get('/exportCitizens', ensureAuthenticated, (req, res) => {
 
                 const workSheetName = 'Citizens';
                 const filePath = `./tools/outputFiles/${shortDate}`;
+
 
                 xlsxExport.exportCitizensToExcel(citizens, workSheetColumnNames, workSheetName, filePath )
                

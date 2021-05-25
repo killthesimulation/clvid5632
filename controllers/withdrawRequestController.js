@@ -20,7 +20,14 @@ exports.createWithdrawRequest = function(id, amount, info){
 
                 newWithdrawalRequest.save()
                     .then(result => {
-                        resolve(result)
+                        Wallet.findOne({_id : id})
+                            .then(walletResult => {
+                                walletResult.usdWallet = walletResult.usdWallet - amount;
+                                walletResult.save()
+                                    .then(finalResult => {
+                                        resolve(finalResult);
+                                    })
+                            })
                     })
                     .catch(err => {
                         reject(err)

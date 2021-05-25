@@ -422,6 +422,24 @@ exports.addCashback = function (id, amount) {
     })
 }
 
+exports.addUsdToWallet = function (id, amount) {
+    return new Promise((resolve, reject) => {
+        Wallet.findOne({_id: id})
+            .then(wallet => {
+                const usdBalance = wallet.usdWallet;
+                wallet.usdWallet = Number(usdBalance) + Number(amount);
+                wallet.save()
+                    .then(wallet => {
+                        resolve(wallet);
+                    })
+                    .catch(err => {
+                        reject(err);
+                    })
+            })
+
+    })
+}
+
 exports.getFemalePercent = function () {
     return new Promise((resolve, reject) => {
         Wallet.find({})
@@ -531,9 +549,9 @@ exports.getPersonalLockDownPeriod = function(id) {
     return new Promise((resolve, reject) => {
         Wallet.findOne({_id: id})
             .then(result => {
-                if(result.restrictionLockPeriod){
+                if(result.restrictionLockPeriod >= 0){
                     resolve(result.restrictionLockPeriod);
-                }else{
+                }else if(result.restrictionLockPeriod == ''){
                     configController.configGetDefaultPremiumLockdown()
                         .then(lockdown => {
                             resolve(lockdown);
@@ -590,9 +608,9 @@ exports.getPersonalLockDownPeriodFree = function(id) {
     return new Promise((resolve, reject) => {
         Wallet.findOne({_id: id})
             .then(result => {
-                if(result.restrictionLockPeriodFree){
+                if(result.restrictionLockPeriodFree >= 0){
                     resolve(result.restrictionLockPeriodFree);
-                }else{
+                }else if(result.restrictionLockPeriodFree == ''){
                     configController.configGetDefaultFreeLockdown()
                         .then(lockdown => {
                             resolve(lockdown);

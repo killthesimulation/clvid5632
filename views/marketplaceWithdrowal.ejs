@@ -58,7 +58,7 @@
         <div class="withdraw-box">
             <div class="withdraw-box-title">Withdraw to PayPal Account</div>
             <div class="withdraw-box-hint">You Balance</div>
-            <div class="withdraw-box-value">$<%= wallet.usdBalance %></div>
+            <div class="withdraw-box-value">$<%= wallet.usdWallet %></div>
             <div class="withdraw-box-hint">Amount</div>
             <div class="withdraw-box-input-box">
                 <input oninput="checkAmount()" required type="text" id="amount-field" name="amount" class="withdraw-field" value="" >
@@ -84,7 +84,7 @@
 
 
 <script>
-    var usdAmount = <%= wallet.usdBalance %>;
+    var usdAmount = <%= wallet.usdWallet %>;
     function checkAmount(){
 
         var enteredValue = document.getElementById('amount-field').value;
