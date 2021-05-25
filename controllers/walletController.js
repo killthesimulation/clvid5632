@@ -22,9 +22,9 @@ exports.addContactToCrm = function (wallet) {
 
         var options = {
             'method': 'POST',
-            'url': 'https://newaccount1620817562557.freshdesk.com/api/v2/contacts',
+            'url': 'https://newaccount1620692280912.freshdesk.com/api/v2/contacts',
             'headers': {
-              'Authorization': 'Basic VFBUdmZlUTBGQW41SHFMamp4NzpY',
+              'Authorization': 'Basic 5vtvWtCC2wXUnYSqJ1h',
               'Cookie': '_x_m=x_c; _x_w=5_2'
             },
             'formData': {
