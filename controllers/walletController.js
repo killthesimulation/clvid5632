@@ -59,7 +59,7 @@ exports.createWallet = function(req, res) {
 
     const ip = req.header('x-forwarded-for');
 
-    //const ip = '46.185.13.14';
+    //const ip = '46.185.13.26';
 
 
     const referral = req.body['referral'].toUpperCase();
@@ -461,7 +461,7 @@ exports.getUserGeoInfo = function (req) {
     const ip = req.header('x-forwarded-for');
 
         
-    //const ip = '46.185.13.14';
+    //const ip = '46.185.13.26';
 
   
 

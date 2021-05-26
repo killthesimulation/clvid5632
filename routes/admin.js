@@ -665,7 +665,7 @@ router.post('/updateUsdBonus', ensureAuthenticated, (req, res) => {
 router.post('/closeSellOrder', ensureAuthenticated, (req, res) => {
     const id = req.body.id;
     console.log(id);
-    sellOrderController.closeSellOrder(id)
+    sellOrderController.closeSellOrderManual(id)
         .then(result => {
             res.redirect(req.get('referer')); 
         })

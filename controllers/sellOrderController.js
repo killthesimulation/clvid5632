@@ -361,6 +361,25 @@ exports.closeSellOrder = function(sellOrderId){
                 sellOrder.closeDate = currentDate;
                 sellOrder.save()
                     .then(result => {
+                       
+                        resolve(result);
+                       
+                    })
+            })
+    })
+}
+
+
+exports.closeSellOrderManual = function(sellOrderId){
+    return new Promise((resolve, reject) => {
+        SellOrder.findOne({_id: sellOrderId})
+            .then(sellOrder => {
+                sellOrder.active = false;
+                var currentDate = new Date(); //use your date here
+                currentDate.toLocaleDateString('en-US'); // "en-US" gives date in US Format - mm/dd/yy
+                sellOrder.closeDate = currentDate;
+                sellOrder.save()
+                    .then(result => {
                         this.deleteSellCap(sellOrder.clvId)
                             .then(finalRes => {
                                 resolve(finalRes);
