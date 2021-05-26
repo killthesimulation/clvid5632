@@ -551,7 +551,7 @@ exports.getPersonalLockDownPeriod = function(id) {
             .then(result => {
                 if(result.restrictionLockPeriod >= 0){
                     resolve(result.restrictionLockPeriod);
-                }else if(result.restrictionLockPeriod == '' || result.restrictionLockPeriod == null){
+                }else{
                     configController.configGetDefaultPremiumLockdown()
                         .then(lockdown => {
                             resolve(lockdown);
