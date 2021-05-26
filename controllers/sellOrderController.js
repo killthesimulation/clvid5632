@@ -165,6 +165,27 @@ exports.getSellCap = function() {
     })
 }
 
+
+exports.deleteSellCap = function(clv) {
+    return new Promise((resolve, reject) => {
+        const currentDate = new Date();
+        const currentMonth = currentDate.getMonth() + 1;
+        const currentYear = currentDate.getFullYear();
+
+        SellCap.deleteOne({clvId: clv, month: currentMonth, year: currentYear}).select('clvId')
+            .then(result => {
+               
+                resolve(result);
+
+
+            })
+            .catch(err => {
+                reject(err);
+            })
+    })
+}
+
+
 exports.createSellCap = function(clvId) {
     return new Promise((resolve, reject) => {
 
@@ -340,7 +361,11 @@ exports.closeSellOrder = function(sellOrderId){
                 sellOrder.closeDate = currentDate;
                 sellOrder.save()
                     .then(result => {
-                        resolve(result);
+                        this.deleteSellCap(sellOrder.clvId)
+                            .then(finalRes => {
+                                resolve(finalRes);
+                            })
+                       
                     })
             })
     })
