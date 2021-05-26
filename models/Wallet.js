@@ -89,10 +89,12 @@ const WalletSchema = new mongoose.Schema({
         type: Number
     },
     restrictionLockPeriod: {
-        type: Number
+        type: Number,
+        default: -1
     },
     restrictionLockPeriodFree: {
-        type: Number
+        type: Number,
+        default: -1
     }
 })
 
