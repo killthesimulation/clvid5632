@@ -238,7 +238,7 @@
 
         <div class="admin-item-block admin-item-block-2">
             <div class="admin-item-block-hint">
-                Change Premium CLV Lockup (Mnth)
+                Premium CLV Lockup (Mnth) (-1 for global)
             </div>
             <form action="/admin/setPersonalLockDownPeriod" method="POST">
             <input name="id" type="hidden"  value="<%= wallet._id %>">
@@ -250,7 +250,7 @@
 
         <div class="admin-item-block admin-item-block-2">
             <div class="admin-item-block-hint">
-                Change Free CLV Lockup (Mnth)
+                Free CLV Lockup (Mnth) (-1 for global)
             </div>
             <form action="/admin/setPersonalLockDownPeriodFree" method="POST">
                 <input name="id" type="hidden"  value="<%= wallet._id %>">
