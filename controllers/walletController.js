@@ -55,7 +55,7 @@ exports.createWallet = function(req, res) {
 
 
 
-    const { firstName, lastName, gender, password, password2, country, day, month, year } = req.body;
+    const { firstName, lastName, gender, password, password2, country, day, month, year} = req.body;
 
     const ip = req.header('x-forwarded-for');
 
@@ -176,7 +176,6 @@ exports.createWallet = function(req, res) {
                         gender,
                         ip,
                         country,
-                        phoneCodes,
                         dateBirth: `${month}//${day}//${year}`
                     });
 
