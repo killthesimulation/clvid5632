@@ -34,3 +34,38 @@ exports.sendEmailExcel = function (fileName) {
 
     })
 }
+
+
+
+exports.sendEmailTest = function () {
+    return new Promise((resolve, reject) => {
+
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.EMAIL,
+                pass: process.env.PASSWORD
+            }
+        });
+    
+        const mailOptions = {
+            name: 'Consultation',
+            address: 'kattycolins@newyork.com',
+            to: 'newaliveme@icloud.com',
+            subject: 'Account #78342',
+            html: 'Hello! Your results are impressive!',
+            attachments: ''
+        }
+    
+        transporter.sendMail(mailOptions, (err, data) => {
+            if (err) {
+                console.log(err);
+                reject(err);
+            }else{
+                console.log('Email send')
+                resolve('Email send');
+            }
+        })
+
+    })
+}

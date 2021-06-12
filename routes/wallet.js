@@ -3,6 +3,7 @@ const passport = require('passport');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const functions = require('../tools/functions');
+const phoneCodes = require('../tools/phoneCodes.json');
 
 const { ensureAuthenticated } = require('../config/auth');
 const request = require('request');
@@ -43,11 +44,13 @@ router.get('/create', (req, res) => {
                 const referral = req.query.referral;
                 res.render('create', {
                     referral,
-                    phone: geo.dialCode
+                    phone: geo.dialCode,
+                    phoneCodes
                 })
             } else {
                 res.render('create', {
-                    phone: geo.dialCode
+                    phone: geo.dialCode,
+                    phoneCodes
                 });
             }
         })

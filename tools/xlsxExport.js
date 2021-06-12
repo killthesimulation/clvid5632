@@ -20,7 +20,7 @@ exports.exportExcel = function (data, workSheetColumnNames, workSheetName, fileP
 
 exports.exportCitizensToExcel = function (dataArray, workSheetColumnNames, workSheetName, filePath) {
     const data = dataArray.map(item => {
-        return [item._id + '', item.codeReferral, item.firstName, item.lastName, item.gender, item.email,  item.phone, item.date, item.restrictionLockPeriod, item.restrictionLockPeriodFree, item.restrictionPercentSellPerMounth ]
+        return [item._id + '', item.codeReferral, item.firstName, item.lastName, item.gender, item.email,  item.phone, item.date, item.restrictionLockPeriod, item.restrictionLockPeriodFree, item.restrictionPercentSellPerMounth, item.dateBirth, item.country ]
     })
 
 

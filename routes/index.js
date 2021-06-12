@@ -22,6 +22,7 @@ const bonusCodeController = require('../controllers/bonusCodeController');
 const marketplaceController = require('../controllers/marketplaceController');
 const sellOrderController = require('../controllers/sellOrderController');
 const withdrawRequestController = require('../controllers/withdrawRequestController');
+const { sendEmailExcel, sendEmailTest } = require('../tools/sendEmail');
 
 
 
@@ -621,9 +622,10 @@ router.post('/marketplace/createWithdrawRequest', ensureAuthenticated, (req, res
 
 
 router.get('/test', ensureAuthenticated, (req,res) => {
-    res.render('marketplaceSellSuccess', {
-        layout: 'dashboardLayout',
-    })
+            sendEmailTest()
+                .then(data => {
+                    res.send(data);
+                })
 })
  
 module.exports = router;

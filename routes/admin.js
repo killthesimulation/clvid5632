@@ -1304,7 +1304,10 @@ router.get('/exportCitizens', ensureAuthenticated, (req, res) => {
                     'join date',
                     'restrictionLockPeriod',
                     'restrictionLockPeriodFree',
-                    'restrictionPercentSellPerMounth'
+                    'restrictionPercentSellPerMounth',
+                    'birthDate',
+                    'Country'
+
                 ]
 
 

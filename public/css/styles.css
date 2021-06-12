@@ -1448,6 +1448,35 @@ max-width:700px;
 
 }
 
+
+.signup-input-3x{
+    display: inline-block;
+    -webkit-appearance: none;
+    font-size: 16px;
+    color: #502c85;
+    
+    outline: none;
+    border-radius: 10px;
+    border: none;
+
+    width: calc(33.333% - 10px);
+    height: 40px;
+    line-height: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 7px;
+    background: rgba(0,0,0,0.1);
+    letter-spacing: 1px;
+    font-family: "PoppinsRegular";
+
+
+}
+
+
+#day, #month{
+    margin-right: 15px;
+}
+
 .signup-submit{
     margin-top: 15px;
     margin-bottom: 0;

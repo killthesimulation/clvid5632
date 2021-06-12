@@ -33,6 +33,14 @@ const WalletSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
+    dateBirth: {
+        type: String,
+        default: '--/--/----'
+    },
+    country: {
+        type: String,
+        default: ''
+    },
     clvBalance: {
         type: Number,
         default: 0
