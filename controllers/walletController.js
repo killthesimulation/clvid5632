@@ -160,6 +160,7 @@ exports.createWallet = function(req, res) {
                                 errors.push({ msg: "Sorry, you can't create an account" });
                                 res.render('create', {
                                     errors,
+                                    phoneCodes
                                 });
                                 reject("No success");
                             }else{
